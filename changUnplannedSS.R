@@ -8,8 +8,8 @@
 	alpha = 0.09             
 	nt    = 38
 	n1    = 19
-	nta   = 40
-	n1a   = 21
+	nta   = 36
+	n1a   = 17
 	p0    = 0.05
 	p1    = 0.2   
 	m     = n1a
@@ -50,9 +50,37 @@
 	
 	## find C star
 	
+	## sum from a to n1* P(Y2star > rt* - y1*) < alpha
+	x1    <- astar:n1a
+	type1 <- NULL
+	
+	for(i in astar:nta){
+		cp0 <- 1-pbinom(i-x1, nta, p0)  # P(Y2* > rt*-y1*)
+		
+		cp0[x1 > i] <- 1
+		
+		type1 <- sum( cp0 * dbinom(x1, n1a, p0)) #sum[P(Y2* > rt*-y1*) * P(Y1* = y1*)]
+	
+		if(type1 < alpha){
+			cstar <- i
+			break
+		}
+	}
+	
+	## calculate power	
+	cp1 <- 1-pbinom(i-x1, nta, p1)
+	cp1[x1 > i] <- 1
+	
+	powerObs <- sum( cp1 * dbinom(x1, n1a, p1))
 
+	## print results in data frame
 results <- data.frame(p0 = p0, p1 = p1, n1 = n1, n = nt, a = a, c = c,
-					  alpha = alpha, power = 1-beta, )	
+					  alpha = alpha, power = 1-beta, 
+					  n1star = n1a, nstar = nta,
+					  astar = astar, cstar = cstar, 
+					  type1Obs = type1, powerObs = powerObs)
+					  
+print(results)					 	
 	
 	
 	
