@@ -1,6 +1,4 @@
-#changDes <- function(m = 0, a = aplan, beta = betaplan, alpha = alphaplan,
-#                        nt = ntplan, nta = ntatt, n1 = n1plan,
-#                        n1a = n1att, p0 = p0plan, p1 = p1plan){
+changDes <- function(){
     
 	a     = 1 
 	c     = 3
@@ -80,9 +78,95 @@ results <- data.frame(p0 = p0, p1 = p1, n1 = n1, n = nt, a = a, c = c,
 					  astar = astar, cstar = cstar, 
 					  type1Obs = type1, powerObs = powerObs)
 					  
-print(results)					 	
+return(results)					 	
 	
 	
 	
-# }
+}
 	
+	
+	
+	
+## type I error simulation
+r1 <- changDes()$astar
+rt <- changDes()$cstar
+n1 <- changDes()$n1star
+nt <- changDes()$nstar
+p0 <- changDes()$p0
+p1 <- changDes()$p1
+
+## under null
+results1 <- c()
+results2 <- c()
+rejectNull <- 0
+totalResponse <- NULL
+totalStage1   <- NULL
+totalStage2   <- NULL
+
+for(j in 1:1000){
+## set up first stage
+	for(i in 1:n1){
+		## get a number of responses
+		results1[i] <- rbinom(1, 1, p0)
+	}
+	totalStage1 <- sum(results1)
+	
+	if(totalStage1 <= r1){
+		## stop
+		rejectNull <- rejectNull + 0
+	}
+	
+	if(totalStage1 > r1){
+		## go to second stage
+		
+		## enroll n2 patients more
+		for(k in 1:(nt-n1)){
+			results2[k] <- rbinom(1, 1, p0)
+		}
+		totalStage2 <- sum(results2)
+		totalResponse <- totalStage1 + totalStage2
+		rejectNull <- ifelse(totalResponse > rt, rejectNull + 1, rejectNull + 0)
+	}
+}
+
+rejectNull/1000
+
+
+## under alternative
+results1 <- c()
+results2 <- c()
+rejectNull <- 0
+totalResponse <- NULL
+totalStage1   <- NULL
+totalStage2   <- NULL
+
+for(j in 1:1000){
+## set up first stage
+	for(i in 1:n1){
+		## get a number of responses
+		results1[i] <- rbinom(1, 1, p1)
+	}
+	totalStage1 <- sum(results1)
+	
+	if(totalStage1 <= r1){
+		## stop
+		rejectNull <- rejectNull + 0
+	}
+	
+	if(totalStage1 > r1){
+		## go to second stage
+		
+		## enroll n2 patients more
+		for(k in 1:(nt-n1)){
+			results2[k] <- rbinom(1, 1, p1)
+		}
+		totalStage2 <- sum(results2)
+		totalResponse <- totalStage1 + totalStage2
+		rejectNull <- ifelse(totalResponse > rt, rejectNull + 1, rejectNull + 0)
+	}
+}
+
+rejectNull/1000
+
+changDes()
+
