@@ -3,9 +3,17 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
                      n1a = 17, nta = 41,
                      p0  = 0.4, p1 = 0.6){
   
+    pet0 <- pbinom(a, n1, p0) ## probability of early termination under the null
+    pet1 <- pbinom(a, n1, p1)
+
+  
+  
+  
+  
   m     = n1a
   astar = NULL
   cstar = NULL
+  
   
   
   ## defining beta, equation 9 in paper
@@ -183,6 +191,7 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   ## print results in data frame
   results <- data.frame(p0 = p0, p1 = p1, n1 = n1, n = nt, a = a, c = c,
                         alpha = alpha, power = 1-beta, 
+                        pet0 = R(pet0), pet1 = R(pet1),
                         n1star = n1a, nstar = nta,
                         astar = astar, cstar = cstar, 
                         type1Obs = R(type1), powerObs = R(powerObs),
