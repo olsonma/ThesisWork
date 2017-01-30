@@ -49,14 +49,14 @@ changDes <- function(a   = 1,   c  = 5, beta = 0.1, alpha = 0.09,
   powerObs <- NULL
   
   
-
-
+  
+  
   cp0 <- 1-pbinom(rt-x1, nt-n1, p0)  ## conditional type I error
-
+  
   ## sum from rt-x1+1 to n2
   ## if X1 > rt, the CP is 1, if X1 <= rt, 0
-
-
+  
+  
   type1 <- sum( y0 * cp0 ) ## unconditional type I error
   
   for(i in astar:nta){
@@ -82,13 +82,23 @@ changDes <- function(a   = 1,   c  = 5, beta = 0.1, alpha = 0.09,
   
   powerObs <- sum( cp1 * y1)
   
+  
+  ## other characteristics
+  pet0star <- pbinom(astar, n1a, p0) ## probability of early termination under the null
+  pet1star <- pbinom(astar, n1a, p1) ## probability of early termination under the alternative
+  
+  EN0star <- n1a + (1-pet0star) * (nta-n1a) ## expected sample size under null
+  ## n1 + n2 * sum_r1+1^n1 dbinom(x1,n1,p0)
+  EN1star <- n1a + (1-pet1star) * (nta-n1a) ## expected sample size under alternative
+  
   ## print results in data frame
   results <- data.frame(p0 = p0, p1 = p1, n1 = n1, n = nt, a = a, c = c,
                         alpha = alpha, power = 1-beta, 
                         n1star = n1a, nstar = nta,
                         astar = astar, cstar = cstar, 
-                        type1Obs = type1, powerObs = powerObs)
+                        type1Obs = type1, powerObs = powerObs,
+                        pet0star = pet0star, pet1star = pet1star, 
+                        EN0star = EN0star, EN1star = EN1star)
   
   return(results)					 	
 }
-changDes()
