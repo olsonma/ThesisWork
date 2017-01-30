@@ -44,7 +44,7 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   
   ## sum from a to n1* P(Y2star > rt* - y1*) < alpha
   x1       <- 0:n1a
-  y0       <- dbinom(x1,n1,p0)   ## P(X1 = x1 | n1, p0)
+  y0       <- dbinom(x1,n1a,p0)   ## P(X1 = x1 | n1, p0)
   type1    <- NULL
   powerObs <- NULL
   
@@ -64,7 +64,7 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   }
   
   ## calculate power
-  y1       <- dbinom(x1,n1,p1)   ## P(X1 = x1 | n1, p0)
+  y1       <- dbinom(x1,n1a,p1)   ## P(X1 = x1 | n1, p0)
   
   cp1 <- 1-pbinom(i-x1, nt-n1, p1)  ## conditional type I error
   cp1[x1 <= astar] <- 0 
@@ -175,7 +175,9 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   powerSim <- rejectNull/sims
   
   
-  
+  R <- function(x){
+	  round(x, 3)
+  }
   
   
   ## print results in data frame
@@ -183,10 +185,10 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
                         alpha = alpha, power = 1-beta, 
                         n1star = n1a, nstar = nta,
                         astar = astar, cstar = cstar, 
-                        type1Obs = type1, powerObs = powerObs,
-                        pet0star = pet0star, pet1star = pet1star, 
-                        EN0star = EN0star, EN1star = EN1star,
-                        type1Sim = type1Sim, powerSim = powerSim)
+                        type1Obs = R(type1), powerObs = R(powerObs),
+                        pet0star = R(pet0star), pet1star = R(pet1star), 
+                        EN0star = R(EN0star), EN1star = R(EN1star),
+                        type1Sim = R(type1Sim), powerSim = R(powerSim))
   
   return(results)					 	
 }
