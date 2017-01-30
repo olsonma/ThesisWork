@@ -1,7 +1,7 @@
-changDes <- function(a   = 1,   c  = 5, beta = 0.1, alpha = 0.09,
-                     n1  = 17,  nt = 29, 
-                     n1a = 17, nta = 29,
-                     p0  = 0.1, p1 = 0.3){
+changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
+                     n1  = 17,  nt = 41, 
+                     n1a = 17, nta = 41,
+                     p0  = 0.4, p1 = 0.6){
   
   m     = n1a
   astar = NULL
@@ -49,16 +49,6 @@ changDes <- function(a   = 1,   c  = 5, beta = 0.1, alpha = 0.09,
   powerObs <- NULL
   
   
-  
-  
-  cp0 <- 1-pbinom(rt-x1, nt-n1, p0)  ## conditional type I error
-  
-  ## sum from rt-x1+1 to n2
-  ## if X1 > rt, the CP is 1, if X1 <= rt, 0
-  
-  
-  type1 <- sum( y0 * cp0 ) ## unconditional type I error
-  
   for(i in astar:nta){
     cp0 <- 1-pbinom(i-x1, nt-n1, p0)  ## conditional type I error
     cp0[x1 <= astar] <- 0 
@@ -91,6 +81,103 @@ changDes <- function(a   = 1,   c  = 5, beta = 0.1, alpha = 0.09,
   ## n1 + n2 * sum_r1+1^n1 dbinom(x1,n1,p0)
   EN1star <- n1a + (1-pet1star) * (nta-n1a) ## expected sample size under alternative
   
+  
+  ## include simulation results
+  ###########################	
+  ## type I error simulation
+  ###########################
+  r1 <- astar
+  rt <- cstar
+  n1sim <- n1a
+  ntsim <- nta
+  p0 <- p0
+  p1 <- p1
+  
+  
+  ## under null
+  sims          <- 10000
+  results1      <- c()
+  results2      <- c()
+  rejectNull    <- 0
+  totalResponse <- NULL
+  totalStage1   <- NULL
+  totalStage2   <- NULL
+  type1Sim      <- NULL
+  
+  for(j in 1:sims){
+    
+    ## set up first stage
+    for(i in 1:n1sim){
+      ## get a number of responses
+      results1[i] <- rbinom(1, 1, p0)
+    }
+    
+    totalStage1 <- sum(results1)
+    #print(totalStage1)
+    if(totalStage1 <= r1){
+      rejectNull <- rejectNull + 0
+    }
+    
+    if(totalStage1 > r1){ ## go to second stage
+      
+      ## enroll n2 patients more
+      for(k in 1:(ntsim-n1sim)){
+        results2[k] <- rbinom(1, 1, p0)
+      }
+      totalStage2 <- sum(results2)
+      totalResponse <- totalStage1 + totalStage2
+      rejectNull <- ifelse(totalResponse > rt, rejectNull + 1, rejectNull + 0)
+    }
+  }
+  
+  type1Sim <- rejectNull/sims
+  
+  
+  
+  ###########################
+  ## Power simulation
+  ## under alternative
+  ############################
+  results1      <- c()
+  results2      <- c()
+  rejectNull    <- 0
+  totalResponse <- NULL
+  totalStage1   <- NULL
+  totalStage2   <- NULL
+  powerSim      <- NULL
+  
+  for(j in 1:sims){
+    
+    ## set up first stage
+    for(i in 1:n1sim){
+      ## get a number of responses
+      results1[i] <- rbinom(1, 1, p1)
+    }
+    
+    totalStage1 <- sum(results1)
+    #print(totalStage1)
+    if(totalStage1 <= r1){
+      rejectNull <- rejectNull + 0
+    }
+    
+    if(totalStage1 > r1){ ## go to second stage
+      
+      ## enroll n2 patients more
+      for(k in 1:(ntsim-n1sim)){
+        results2[k] <- rbinom(1, 1, p1)
+      }
+      totalStage2 <- sum(results2)
+      totalResponse <- totalStage1 + totalStage2
+      rejectNull <- ifelse(totalResponse > rt, rejectNull + 1, rejectNull + 0)
+    }
+  }
+  
+  powerSim <- rejectNull/sims
+  
+  
+  
+  
+  
   ## print results in data frame
   results <- data.frame(p0 = p0, p1 = p1, n1 = n1, n = nt, a = a, c = c,
                         alpha = alpha, power = 1-beta, 
@@ -98,7 +185,10 @@ changDes <- function(a   = 1,   c  = 5, beta = 0.1, alpha = 0.09,
                         astar = astar, cstar = cstar, 
                         type1Obs = type1, powerObs = powerObs,
                         pet0star = pet0star, pet1star = pet1star, 
-                        EN0star = EN0star, EN1star = EN1star)
+                        EN0star = EN0star, EN1star = EN1star,
+                        type1Sim = type1Sim, powerSim = powerSim)
   
   return(results)					 	
 }
+
+changDes()
