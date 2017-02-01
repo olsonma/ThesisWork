@@ -1,10 +1,16 @@
+## This file is a simulation of two stage simon design
+## need to load changUnplannedSS.R for this to run or simply redefine the parameters	
+## these parameters are attained parameters, not planned
+
+###########################	
+## type I error simulation
 ###########################
-r1 <- 7
+r1 <- 8
 rt <- 21
-n1 <- changDes()$n1star
-nt <- changDes()$nstar
-p0 <- changDes()$p0
-p1 <- changDes()$p1
+n1 <- 19
+nt <- 43
+p0 <- .4
+p1 <- .6
 
 
 ## under null
@@ -24,7 +30,7 @@ for(j in 1:1000){
   }
   
   totalStage1 <- sum(results1)
-  print(totalStage1)
+  #print(totalStage1)
       if(totalStage1 <= r1){
         rejectNull <- rejectNull + 0
       }
@@ -66,7 +72,7 @@ for(j in 1:1000){
   }
   
   totalStage1 <- sum(results1)
-  print(totalStage1)
+  #print(totalStage1)
       if(totalStage1 <= r1){
         rejectNull <- rejectNull + 0
       }
