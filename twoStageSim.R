@@ -1,6 +1,9 @@
 ## This file is a simulation of two stage simon design
-## need to load changUnplannedSS.R for this to run or simply redefine the parameters	
-## these parameters are attained parameters, not planned
+## redefine the parameters below accordingly. 
+## This simulation is used in the function `changDes`, but they are
+## defined as "unplanned" parameters in `changDes`. i.e the parameters are
+## probably renamed in the function. 
+## this was used for trial and error purposes. 
 
 ###########################	
 ## type I error simulation

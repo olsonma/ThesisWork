@@ -1,3 +1,10 @@
+## This file is used for exploratory, trial/error, and investigatory purposes as to not lose 
+## valuable progress on the original file. When "trial" is complete, changUnplannedSS.R is updated
+## with the results of this file. 
+
+## currently, these files are matching. 
+
+
 changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
                      n1  = 17,  nt = 41, 
                      n1a = 17, nta = 41,
@@ -6,14 +13,9 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
     pet0 <- pbinom(a, n1, p0) ## probability of early termination under the null
     pet1 <- pbinom(a, n1, p1)
 
-  
-  
-  
-  
   m     = n1a
   astar = NULL
   cstar = NULL
-  
   
   
   ## defining beta, equation 9 in paper
@@ -202,4 +204,3 @@ changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   return(results)					 	
 }
 
-changDes()

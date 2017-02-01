@@ -1,5 +1,6 @@
 ##  This file will create a table that is similar to the protocol for
-## unplanned sample sizes. Must load changUnplannedSS.R to run. 
+## unplanned sample sizes. Must load changUnplannedSS.R and evaluate
+## `changDes` before evaluating the following.
 
 
 

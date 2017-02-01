@@ -1,3 +1,15 @@
+## changDes is a function that is based on the paper Chang et al. Alternative Designs for Phase II
+## Clinical Trials when Attained Sample Sizes are Different From Planned Sample Sizes
+## the function takes a (planned stage 1 cv), c (planned stage 2 cv), 
+##                    beta (type II error)  , alpha (type I error),
+##                    n1 (planned stage 1 sample size), nt (planned total sample size)
+##                    n1a (attained stage 1 sample size), nta (attained total sample size)
+##                    p0 (null hypothesis response rate), p1 (alternative hypothesis response rate)
+## The function will return the above parameters and expected sample size under the null and alternative for unplanned
+## sample sizes, probability of early termination under null and alternative for planned and unplanned sample sizes, 
+## closed form type 1 error and power for unplanned sample sizes, and simulated type I error and power for planned sample sizes.
+
+
 changDes <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
                      n1  = 17,  nt = 41, 
                      n1a = 17, nta = 41,
