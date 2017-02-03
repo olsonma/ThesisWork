@@ -1,0 +1,477 @@
+\listfiles
+\documentclass[12pt]{report}
+
+\usepackage[intoc]{nomencl}
+\textwidth=6in \oddsidemargin=0.5in \topmargin=-0.5in
+\textheight=9in  % 9in must include page numbers
+\textfloatsep = 0.4in 
+\addtocontents{toc}{\vspace{0.4in} \protect \hfill Page\endgraf} 
+\addtocontents{lof}{\vspace{0.2in} \hspace{0.13in} \ Figure \protect \hfill Page\endgraf} \addtocontents{lot}{\vspace{0.2in} \hspace{0.13in} \ Table \protect\hfill Page\endgraf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- USE PACKAGE-----------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[font=singlespacing]{caption}
+%\usepackage{caption}
+%\captionsetup{font=scriptsize}
+\captionsetup{font=footnotesize}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\renewcommand\bibname{REFERENCES}
+
+
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[table]{xcolor}
+ \usepackage{amsfonts}
+ \usepackage{amsmath}
+ \usepackage{amsbsy,bm}
+ \usepackage{amssymb}
+\usepackage{graphicx}
+ \usepackage{setspace}
+ \usepackage{rotating}
+ \usepackage{float}
+ \usepackage{stmaryrd}
+ \usepackage{multirow}
+ \usepackage{color}
+ \usepackage{soul}
+ \usepackage{caption}
+\usepackage{eepic}
+\usepackage{colortbl}
+%\usepackage[numbers]{natbib}
+\usepackage{natbib}
+\setcitestyle{citesep={;}, aysep={,}}
+\newcommand\harvardand{\&}
+%\renewcommand{\bibname}{References}
+\usepackage {multirow}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{subfig}
+\usepackage[mathscr]{euscript}
+\usepackage[titletoc,title]{appendix}
+\usepackage[titletoc]{appendix}
+\usepackage[tocgraduated]{tocstyle}
+
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{mathptmx}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{amssymb, amsmath}
+\usepackage{subfig}
+\usepackage{epsfig}
+\usepackage{times}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage[subfigure, titles]{tocloft}
+
+\usepackage{acronym}
+\usepackage{datetime}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{url, hyperref}
+%\usepackage{cleveref}
+\renewcommand{\nomname}{LIST OF ABBREVIATIONS}
+\makenomenclature
+\graphicspath{{images/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.PNG, .eps, .tiff}
+
+\urlstyle{same}
+
+\usepackage{makecell}
+\usepackage{titletoc}
+\usepackage{appendix}
+\usepackage[nottoc]{tocbibind}
+\setcounter{secnumdepth}{7}
+\setcounter{tocdepth}{7}
+\usepackage{lscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- NEW COMMANDS-------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%new chapter/section and subsection commands
+\newcommand{\hsuchapter}[1]{\chapter*{#1} \addcontentsline{toc}{chapter}{#1} } 
+\newcommand{\hsusection}[1]{\section*{#1} \addcontentsline{toc}{section}{#1} } 
+\newcommand{\hsusubsection}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1} } 
+
+%%%%%%%Configure Table of Contents%%%%%%%%%%%%
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+%%%%%%%Configure List of Figures%%%%%%%%%%%%
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\setlength{\cftbeforefigskip}{0.2in}
+
+%%%%%%%Configure List of Tables%%%%%%%%%%%%
+\renewcommand{\listtablename}{LIST OF TABLES}
+\setlength{\cftbeforetabskip}{0.2in}
+
+%%%%%% Configure ABSTRACT %%%%%%
+\usepackage{abstract}
+\renewcommand{\abstractname}{ABSTRACT}
+
+
+
+
+%%%%%%%Configure Bibliography%%%%%%%%%%%%
+\renewcommand{\bibname}{ \texorpdfstring{{REFERENCES\vspace{10mm}}}{REFERENCES}   }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- CONFIGURE CHAPTER HEADINGS--------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \centering
+    \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@schapter#1{\if@twocolumn
+                   \@topnewpage[\@makeschapterhead{#1}]%
+                 \else
+                   \@makeschapterhead{#1}%
+                   \@afterheading
+                 \fi}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \centering
+    \normalfont
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vskip 10\p@
+  }}
+
+
+
+
+%%% this configure the linespace in the table of content
+%%% code is complicated and ugly but it works
+\newlength{\li}\setlength{\li}{14.48pt}
+\newlength{\di}\setlength{\di}{-3.5mm}
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\space\thechapter.}%
+      \addcontentsline{toc}{chapter}{\numberline{\thechapter}#1}
+         %{\protect\numberline{\thechapter}\uppercase{#1}}%
+      \addtocontents{toc}{\protect\vspace{\li}}%
+  \else
+      %\addcontentsline{toc}{chapter}{\uppercase{#1}}%
+      \addcontentsline{toc}{chapter}{#1}
+      \addtocontents{toc}{\protect\vspace{\li}}%
+  \fi
+  \chaptermark{#1}%
+  \if@twocolumn
+      \@topnewpage[\@makechapterhead{#2}]%
+  \else
+      \@makechapterhead{#2}%
+      \@afterheading
+ \fi}
+
+
+\renewcommand\chapter{\addtocontents{toc}{\protect\addvspace{\li}}%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{plain}%
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------CONFIGURE SECTION HEADINGS------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\section{ \@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\centering\normalfont}}
+
+
+                    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------CONFIGURE SUBSECTION HEADINGS- --------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\subsection{\@startsection {subsection}{2}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\noindent \normalfont  }}
+                                  
+      
+                                   
+
+%%%%%%%Sub-Sub-Section's Not  Supported%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------CONFIGURE TABLE OF CONTENTS HEADING------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\@cftmaketoctitle}{
+  \chapter*{\contentsname}
+  \addcontentsline{toc}{chapter}{TABLE OF CONTENTS}} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------CONFIGURE LIST OF FIGURES HEADING------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\@cftmakeloftitle}{
+  \chapter*{\listfigurename}
+  Figure \hfill Page
+  \addcontentsline{toc}{chapter}{LIST OF FIGURES} } 
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------CONFIGURE LIST OF TABLES HEADING-------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\@cftmakelottitle}{
+  \chapter*{\listtablename}
+   Table \hfill Page
+   \addcontentsline{toc}{chapter}{LIST OF TABLES} }  
+
+\makeatother
+
+\setcounter{section}{-1}     
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------------------------NEW COMMANDS-------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\etal}{\emph{et al.}}
+\newcommand{\leftsup}[2]{{\vphantom{#2}}^{#1}{#2}}
+\newcommand{\leftsub}[2]{{\vphantom{#2}}_{#1}{#2}}
+\newcommand{\leftsupsub}[3]{{\vphantom{#3}}^{#1}_{#2}{#3}}
+
+\DeclareMathOperator*{\assembly}{\textbf{\Large A} }
+
+\definecolor{lightblue}{rgb}{.90,.95,1} 
+\newcommand{\hllb}[1]{
+	\sethlcolor{lightblue}
+	\hl{#1}
+	\sethlcolor{yellow}
+	}
+
+\newcommand{\hlc}[2][yellow]{{\sethlcolor{#1}\hl{#2}} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------DEFINE FLOATS----------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \floatstyle{plain}
+ \newfloat{Box}{h}{lob}
+ \newcommand{\boxedtext}[3]{
+ 	\begin{Box} \caption{\small{#1}}
+	\hspace{1.cm}
+	\fbox{\begin{minipage}[c]{0.85\linewidth} 
+	
+	\small{#2}
+       
+       \end{minipage}}
+       
+       \label{#3}
+       \end{Box}
+  }
+
+ \begin{document}
+
+%\pagestyle{myheadings} \markright{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- MAKE TITLE CHANGES HERE---------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{alph}
+
+\begin{titlepage}
+\thispagestyle{empty}\enlargethispage{\the\footskip}%
+\begin{center}
+	{\setstretch{1.66} {Working Title: A comparison of approaches for unplanned sample sizes in phase II clinical trials}\par }%
+	\vskip.4in
+	By
+	\vskip .3in
+	{Molly Olson}
+	\vskip .3in
+	
+	\begin{doublespace}
+	Thesis\\
+		Submitted to the Faculty of the \\
+		Graduate School of Vanderbilt University \\
+		in partial fulfillment of the requirements \\
+		for the degree of \\ [.1in]
+	\end{doublespace}
+	
+	\MakeUppercase{MASTER OF SCIENCE} \\[.1in]
+	in \\[.1in]
+	{Biostatistics} \\[.25in]
+	Graduation Date, 2017 \\[.25in]
+	Nashville, Tennessee
+	\vskip .5in
+%\end{center}
+%%%Uncomment for Signatures%%%
+%Approved: \hskip 2.9in Date:\\[1.2em]
+%\rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.01in]
+%Professor John D. Doe \\[.14in]
+%\rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt}  \\[.01in]
+%Professor John D. Doe \\[.14in]
+%\rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.01in]
+%Professor John D. Doe \\[.14in]
+%\rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.01in]
+%Professor John D. Doe \\[.14in]
+%\\[.14in]
+%%%%%%%%%%%%%%
+%%%%%%Uncomment  for Approved Names%%%%%%
+\begin{doublespace}
+Awaiting Approval (in progress):\\
+Tatsuki Koyama , Ph.D. \\
+Jeffrey Blume , Ph.D. \\
+\end{doublespace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{center}
+\end{titlepage}
+ 
+\doublespacing
+\pagenumbering{roman} \setcounter{page}{2}
+
+%\chapter*{The dedication page is optional. If you don't use it, please delete it.}
+%\addcontentsline{toc}{chapter}{DEDICATION}
+%\vspace{7mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------ACKNOWLEDGEMENTS----------- -----------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{ACKNOWLEDGMENTS}
+\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
+\vspace{7mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- BEGIN TABLE OF CONTENTS---------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{singlespace}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{chapter}{\listtablename}
+\end{singlespace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------BEGIN LIST OF TABLES------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------BEGIN LIST OF FIGURES----------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- ABSTRACT-----------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\chapter*{ABSTRACT}
+
+\vspace{7mm}
+In this dissertation, we develop .....
+\newpage
+
+\normalsize
+\doublespacing
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%---------------------------------------------------------------------------------------------------------------%
+%------------------------------------------------SECTION------------------------------------------------%
+%---------------------------------------------------------------------------------------------------------------%
+\cftlocalchange{toc}{450pt}{0cm}
+\cftaddtitleline{toc}{chapter}{Chapter}{}
+\cftlocalchange{toc}{1.55em}{2.55em}
+\chapter{Introduction}
+\vspace{-7mm}
+Chapter 1 starts here
+
+
+\section{Chapter 1 section 1}
+\subsection{Chapter 1 subsection }
+\begin{figure}
+\begin{center}
+%\includegraphics[width=6in]{figure1_1.eps}
+\end{center}
+%%%%% figure/table caption is tricky!
+%%%%% You might want to have shorter captions in the list of figures but keep the longer and more descriptive captions in the text. The trick is to have \caption[short caption]{longer caption}
+%%%%% For list of figures/ list of tables, graduate school requires single-line space within one caption, but double-line space between captions. If your caption is longer than one line, you can use \vspace*{\di} to force single-line space within caption. We need to manually remove it if your caption can be put within one line. See the following example. Again, this is uggly but it works.
+\caption[Figure caption you want to show in the list of figures. ]{You can put longer caption here \label{fig:1_1}}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+%\includegraphics[width=6in]{figure1_2.eps}
+\end{center}
+\caption[\vspace*{\di}Figure caption you want to show in the list of figures. It could be short. But if it is longer than one line, need to make sure it is single-line spaced. ]{You can put longer caption here \label{fig:1_2}}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------CHAPTER 1 SECTION 2------ ------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chapter 1 section 2}
+
+
+\clearpage
+
+%---------------------------------------------------------------------------------------------------------------%
+%------------------------------------------------SECTION------------------------------------------------%
+%---------------------------------------------------------------------------------------------------------------%
+
+
+\chapter{Chapter 2 title}\label{chapter2 title}
+\vspace{-7mm}
+Chapter 2 starts here ....
+\section{Chapter 2 Section 1}\label{2.1}
+\subsection{Chapter 2 Subsection }
+\subsection{Chapter 2 Subsection }
+\subsection{Chapter 2 Subsection }
+\section{Chapter 2 Section 2}
+\subsection{Chapter 2 Subsection }
+\subsection{Chapter 2 Subsection }
+\section{Chapter 2 Section 3}
+\subsection{Chapter 2 Subsection }
+\clearpage
+
+\chapter{Chapter 3 title}\label{chapter3 title}
+\vspace{-7mm}
+Chapter 3 starts here ....
+\section{Chapter 3 Section 1}\label{3.1}
+\subsection{Chapter 3 Subsection }
+\subsection{Chapter 3 Subsection }
+\subsection{Chapter 3 Subsection }
+\section{Chapter 3 Section 2}
+\subsection{Chapter 3 Subsection }
+\subsection{Chapter 3 Subsection }
+\section{Chapter 3 Section 3}
+\subsection{Chapter 3 Subsection }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------- BIBLIOGRAPHY--------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{vandy_dissertation}
+
+\bibliography{ref_dissertation}
+
+
+\end{document} 
+
+
