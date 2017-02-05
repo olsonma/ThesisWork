@@ -17,7 +17,7 @@ changDesCompare <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
                      n1a = 17, nta = 41,
                      p0  = 0.4, p1 = 0.6){
                      	
-	Design    <- matrix(c("Chang","Chang Alter"), nrow=2)
+	Design    <- matrix(c("Chang","Chang Alter",""), nrow=3)
 	chang     <-     as.matrix(changDes(a   = a,   c  = c, beta = beta, alpha = alpha,
             				   n1  = n1,   nt = nt, 
             				   n1a = n1a, nta = nta,
@@ -27,7 +27,7 @@ changDesCompare <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
             			       n1a = n1a, nta = nta,
               			   	   p0  = p0,   p1 = p1)  )           					 
               					 
-	dfCompare <- rbind(chang, changAlter)
+	dfCompare <- rbind(chang, changAlter, rep("", dim(chang)[2]))
 	dfCompare <- data.frame(Design = Design, dfCompare)
 	return(dfCompare)               	
 }
