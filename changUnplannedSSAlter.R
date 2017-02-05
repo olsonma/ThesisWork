@@ -1,5 +1,15 @@
 
-## currently, these files are matching. 
+## changDesAlter is a function that is based on the paper Chang et al, but uses probability of early termination
+## as a basis of choosing the first critical value. Alternative Designs for Phase II
+## Clinical Trials when Attained Sample Sizes are Different From Planned Sample Sizes
+## the function takes a (planned stage 1 cv), c (planned stage 2 cv), 
+##                    beta (type II error)  , alpha (type I error),
+##                    n1 (planned stage 1 sample size), nt (planned total sample size)
+##                    n1a (attained stage 1 sample size), nta (attained total sample size)
+##                    p0 (null hypothesis response rate), p1 (alternative hypothesis response rate)
+## The function will return the above parameters and expected sample size under the null and alternative for unplanned
+## sample sizes, probability of early termination under null and alternative for planned and unplanned sample sizes, 
+## closed form type 1 error and power for unplanned sample sizes, and simulated type I error and power for planned sample sizes.
 
 
 changDesAlter <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
@@ -14,16 +24,25 @@ changDesAlter <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   astar = NULL
   cstar = NULL
   
-  print(paste0("pet0: ", pet0))
+  ## find astar
+  
+  aRight   <- NULL
+  petRight <- NULL
+  aLeft    <- NULL
+  petLeft  <- NULL
+  
   ## find A star
   for(i in 1:n1a){
   	pet0i <- round(pbinom(i, n1a, p0),3)
-  	print(paste0("i: ", i, " pet0: ", pet0))
   	if(pet0i >= pet0){
-  		astar <- i
+  		aRight   <- i
+  		aLeft    <- i-1
+  		petRight <- round(pbinom(i, n1a, p0),3)
+		petLeft  <- round(pbinom(i-1, n1a, p0),3)
   		break
   	}
   }
+  astar <- ifelse( abs(petRight - pet0) < abs(petLeft - pet0), aRight, aLeft)
   
   
   ## find C star
@@ -117,7 +136,6 @@ changDesAlter <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   }
   
   type1Sim <- rejectNull/sims
-  
   
   
   ###########################
