@@ -1,4 +1,2 @@
 \vspace {0.2in} \hspace {0.13in} \ Figure \hfill Page\endgraf 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Figure caption you want to show in the list of figures. }}{1}{figure.caption.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces \vspace *{\di }Figure caption you want to show in the list of figures. It could be short. But if it is longer than one line, need to make sure it is single-line spaced. }}{2}{figure.caption.2}
 \contentsfinish 
