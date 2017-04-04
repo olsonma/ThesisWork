@@ -476,7 +476,7 @@ Decide later if subsections are needed.  \\
 %--------------------Chang et al method----------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Because accruement of patients can often be unexpected in both stages, it's imperative that methods are available to handle situations with attained sample sizes that differ from the planned sample size. Chang \textit{et al} \cite{Chang} proposed an alternative design that is an extension of Simon’s two stage design to handle unplanned sample sizes in both the first and second stages. Chang \textit{et al} proposes that type II error probability spent in stage I, based on planned and attained sample size, is ... 
+Because accruement of patients can often be unexpected in both stages, it's imperative that methods are available to handle situations with attained sample sizes that differ from the planned sample size. Chang \textit{et al} \cite{Chang} proposed an alternative design that is an extension of Simon’s two stage design to handle unplanned sample sizes in both the first and second stages. Let $n_1$, $n_t$, $r_1$, $r_t$, $p_0$, $p_1$, $\alpha$, and $\beta$ be the original, planned design parameters \textbf{can we call these design parameters? Jung calls design parameters p0,p1,alpha,beta} and let $n_1^\ast$ be the attained sample size in the first stage, $n_t^\ast$ be the attained sample size at the end of the second stage, and $n_2^\ast = n_t^\ast - n_1^\ast$.  Chang \textit{et al} proposes that type II error probability spent in stage I, based on planned and attained sample size, is given by $\beta_1 = \mbox{P}(X_1 \leq r_1 \vert n_1, p = p_1)$ 
 \newline
 Wu \textit{et al} \cite{Wu} also proposed an adjustment to Simon’s design based on attained sample sizes in both the first and second stages. Because Wu's methods don't work very well \textbf{wording}, we won't consider their method for the remainder of this paper. 
 
@@ -581,10 +581,15 @@ controlling type 1 error, but criteria is controlling PET - I think T1E will sti
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%------------------------------------------------%
+%------------------Questions------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\begin{itemize}
+  \item Chapter 3: design parameters
+  \item when do we introduce notation?
+  \item Particularly when describing other peoples' methods, how do you cite?
+  \item If likelihood design can translate into simon's design and have better properties - can that be used as a tool to come up with these designs instead of using Chang's method? Or are they different because you're operating under frequentist vs likelihood inference? 
+\end{itemize}
 
 
 

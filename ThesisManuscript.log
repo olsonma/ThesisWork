@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 APR 2017 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 APR 2017 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1214,16 +1214,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 610--616
 
  []
 
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 638.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 (./ThesisManuscript.bbl [10
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 657.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 662.
  [11
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 657.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 662.
  (./ThesisManuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 657.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 662.
 
 
  *File List*
@@ -1358,20 +1363,21 @@ gettitlestring.sty    2016/05/16 v1.5 Cleanup title references (HO)
 ThesisManuscript.out
 ThesisManuscript.out
   ot1qcs.fd    2009/09/25 v1.2 font definition file for OT1/qcs
+  ts1ptm.fd    2001/06/04 font definitions for TS1/ptm.
 ThesisManuscript.bbl
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 657.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 662.
 Package rerunfilecheck Info: File `ThesisManuscript.out' has not changed.
 (rerunfilecheck)             Checksum: D71F1C35FEFD99BA1F099872E2585F9B;814.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 657.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 662.
  ) 
 Here is how much of TeX's memory you used:
- 14478 strings out of 493014
- 215455 string characters out of 6133351
+ 14501 strings out of 493014
+ 215803 string characters out of 6133351
  347909 words of memory out of 5000000
- 17623 multiletter control sequences out of 15000+600000
- 55923 words of font info for 123 fonts, out of 8000000 for 9000
+ 17642 multiletter control sequences out of 15000+600000
+ 56237 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,72p,1704b,417s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/l
@@ -1386,7 +1392,7 @@ nts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/u
 rw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/ut
 mb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ThesisManuscript.pdf (17 pages, 141854 bytes).
+Output written on ThesisManuscript.pdf (17 pages, 144967 bytes).
 PDF statistics:
  220 PDF objects out of 1000 (max. 8388607)
  188 compressed objects within 2 object streams
