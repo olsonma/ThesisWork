@@ -18,18 +18,18 @@
 \contentsline {chapter}{\hbox to\@tempdima {2\hfil }Background}{3}{chapter.2}
 \vspace {\li }
 \addvspace {\li }
-\contentsline {chapter}{\hbox to\@tempdima {3\hfil }Unplanned Sample Sizes}{4}{chapter.3}
+\contentsline {chapter}{\hbox to\@tempdima {3\hfil }Unplanned Sample Sizes}{5}{chapter.3}
 \vspace {\li }
-\contentsline {section}{\numberline {3.1}Unplanned Sample Sizes in Second Stage}{4}{section.3.1}
-\contentsline {section}{\numberline {3.2}Unplanned Sample Sizes in Both Stages}{4}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}\textit {Chang et al.} Alternative Designs and Adaptation}{4}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Likelihood Design}{5}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.1}Unplanned Sample Sizes in Second Stage}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Unplanned Sample Sizes in Both Stages}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\textit {Chang et al.} Alternative Designs and Adaptation}{5}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Likelihood Design}{6}{subsection.3.2.2}
 \addvspace {\li }
-\contentsline {chapter}{\hbox to\@tempdima {4\hfil }Example}{8}{chapter.4}
-\vspace {\li }
-\addvspace {\li }
-\contentsline {chapter}{\hbox to\@tempdima {5\hfil }Results}{9}{chapter.5}
+\contentsline {chapter}{\hbox to\@tempdima {4\hfil }Example}{9}{chapter.4}
 \vspace {\li }
 \addvspace {\li }
-\contentsline {chapter}{ {REFERENCES\vspace {10mm}} }{10}{chapter.5}
+\contentsline {chapter}{\hbox to\@tempdima {5\hfil }Results}{10}{chapter.5}
+\vspace {\li }
+\addvspace {\li }
+\contentsline {chapter}{ {REFERENCES\vspace {10mm}} }{11}{chapter.5}
 \contentsfinish 
