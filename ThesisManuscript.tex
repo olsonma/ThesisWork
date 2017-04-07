@@ -12,44 +12,9 @@
 }
 \makeatother
 
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
+\usepackage{Sweavel}
 
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
 
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
 
 \usepackage[intoc]{nomencl}
 \textwidth=6in \oddsidemargin=0.5in \topmargin=-0.5in
@@ -75,8 +40,7 @@
 \usepackage[nottoc,notlof,notlot]{tocbibind}
 \renewcommand\bibname{REFERENCES}
 %\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
-%\bibliography{/Users/mollyolson/Documents/Vanderbilt/Masters_Thesis/ThesisWork/thesisBibliography}		
-%\usepackage{biblatex}
+%\bibliography{/Users/mollyolson/Documents/Vanderbilt/Masters_Thesis/ThesisWork/thesisBib.bib}
 
 %\usepackage{cite}
 
@@ -104,9 +68,12 @@
 \usepackage{colortbl}
 %\usepackage[numbers]{natbib}
 %\usepackage{natbib}
+%\usepackage{natbib}
 %\setcitestyle{citesep={;}, aysep={,}}
 \newcommand\harvardand{\&}
+
 %\renewcommand{\bibname}{References}
+
 
 
 
@@ -351,8 +318,9 @@
        \label{#3}
        \end{Box}
   }
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\begin{document}
+
+ \begin{document}
+
 
 %\pagestyle{myheadings} \markright{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -471,6 +439,10 @@ In this thesis, we develop .....
 %------------------------------------------------CHAPTER1------------------------------------------------%
 %---------------------------------------------------------------------------------------------------------------%
 
+%% comparison by itself is interesting
+%% chang et al design is a little bit better - it's a new contribution so it won't feel like it's only reviews. 
+%% make sure that comes out in the paper
+%% maybe change the section title
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------Introduction------------------------------------%
@@ -504,34 +476,54 @@ We will only talk about extensions to Simon's design, hypothesis testing, and on
 \newline
 \textbf{}
 \newline
-\indent Simon's II stage designs for clinical trials are common designs for phase II oncology clinical trials \cite{Simon}. In Simon's designs, the null hypothesis $\mbox{H}_0: p \leq p_0$ is tested against the alternative $\mbox{H}_1: p \geq p_1$, where $p$ is the true response probability, $p_0$ is the highest probability of response that would indicate that the research regimen is uninteresting and $p_1$ is the lowest probability of response that would indicate that the research regimen warrents further investigation. Under these hypotheses, it is required that the type I error rate remain less than $\alpha$ and power remain above $1-\beta$. The general framework of Simon's design includes a sample size and critical value in each of the two stages. Let $n_1$ denote the first stage sample size, $n_t$ the sample size at the end of the second stage, $r_1$ the first stage critical value, and $r_t$ the critical value for the end of the second stage. Let $X_1$ be the number of successes observed in the first stage and $X_2$ be the number of additional success in the second stage. In the first stage, $n_1$ patients are enrolled. If $r_1$ or fewer patients ($X_1 \leq r_1$) are successes, then the regimen is rejected and the trial is stopped for futility. If $r_1 + 1$ patients are successful, then the trial continues to the second stage. In the second stage, $n_2 = n_t - n_1$ patients are enrolled. If $r_t$ or fewer out of the $n_t$ patients are successful ($X_t = X_1 + X_2 \leq r_t$), the treatment is considered to be futile, otherwise if $r_t + 1$ patients succeed, the treatment is considered to be effective and warrent further study.  \\
+\indent Simon's II stage designs for clinical trials are common designs for phase II oncology clinical trials \cite{Simon}. In Simon's designs, the null hypothesis $\mbox{H}_0: p \leq p_0$ is tested against the alternative $\mbox{H}_1: p > p_0$, where $p$ is the true response probability, $p_0$ is the highest probability of response that would indicate that the research regimen is uninteresting and $p_1$ is the lowest probability of response that would indicate that the research regimen warrents further investigation. Under these hypotheses, it is required that the type I error rate remain less than $\alpha$ and power remain above $1-\beta$. The general framework of Simon's design includes a sample size and critical value in each of the two stages. Let $n_1$ denote the first stage sample size, $n_t$ the sample size at the end of the second stage, $r_1$ the first stage critical value, and $r_t$ the critical value for the end of the second stage. Let $X_1$ be the number of successes observed in the first stage and $X_2$ be the number of additional success in the second stage. In the first stage, $n_1$ patients are enrolled. If $r_1$ or fewer patients ($X_1 \leq r_1$) are successes, then the regimen is rejected and the trial is stopped for futility. If $r_1 + 1$ patients are successful, then the trial continues to the second stage. In the second stage, $n_2 = n_t - n_1$ patients are enrolled. If $r_t$ or fewer out of the $n_t$ patients are successful ($X_t = X_1 + X_2 \leq r_t$), the treatment is considered to be futile, otherwise if $r_t + 1$ patients succeed, the treatment is considered to be effective and warrent further study.  \\
 \indent Design characteristics: Let $B$ denote the cumulative binomial distribution function and $b$ denote the binomial probability mass function. The probability of early termination with probability $p$ in Simon's designs is given by PET = $B(r_1, p, n_1)$. The expected sample size for probability $p$ is then $\mbox{EN} = n_1 + (1-\mbox{PET})n_2$. The probability of rejecting a drug for probability $p$ is then  $PR(p) = B(r_1, p, n_1) + \sum_{x=r_1+1}^{min[n_1,r]} b(x, p, n_1) B(r-x,p,n_2)$. It is required that $PR(p) \geq 1-\alpha$ and $PR(p) \leq \beta$. Given these constraints, it follows that unconditional conditional power, $UCP(p)$, given probability $p$, is given by $1-PR(p) = 1 - \left( B(r_1, p, n_1) + \sum_{x=r_1+1}^{min[n_1,r]} b(x, p, n_1) B(r-x,p,n_2) \right) = \sum_{r_1+1}^{n_1} \left\{\sum_{x_2 = r_t-x_1+1}^{n_2} b(x_2, p, n_2) \right\} b(x_1, p, n_1)$, and $UCP(p_1) \geq 1-\beta$ and $UCP(p_0) \leq \alpha$. \\
 \indent Simon introduced optimal and minimax designs. An optimal two-stage design is a Simon's design in which minimizes the expected sample size under the null hypothesis, response value $p_0$, ($\mbox{EN}_0$) while still satisfying the type I and type II error probability restrictions. The minimax design will minimize the maximum sample size ($n_1 + n_2$). Jung \textit{et al.} \cite{Jung} introduced an extension of Simon's designs called admissible designs that are considered a compromise between optimal and minimax designs because they have similar maximim sample size as the minimax design and a similar $EN_0$ to the optimal design.  Admissible designs optimize a straight line on the ($n$, $EN$)-plane, $q \times n + (1-q) \times \mbox{EN}$, for some $q \in [0,1]$ \cite{Jung}. Admissible designs satisfy ($\alpha, \beta$) constraints and obtain an expected sample size somewhere between optimal and minimax designs. Admissible designs may be attractive because they have agreeable properties of both the minimax and optimal design.  Simon does not allow for early termination of the trial for efficacy \cite{Simon}, and we do not consider that design here. 
 
+\begin{itemize}
+  \item We consider only redesigns here -something you can prespecify. Not calculate after you get the values. 
+  \item Talk about this in the "why we care"
+\end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------------Literature Review-------------------------%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Unplanned Sample Sizes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This chapter will talk about unplanned sample sizes when only the second stage is different and when both stages can be different. The former will talk about methods such as Koyama and Chen, UMVUE, MLE, etc. The latter will talk about the likelihood design, Chang, adaptation of Chang, and possibly Wu. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------Unplanned sample size in the first stage-----------%
 \section{Unplanned Sample Sizes in Second Stage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\section{Unplanned Sample Sizes in Both Stages}
+When over- or under-enrollment occurs, a straightforward solution is to perform an interim analysis on the planned number of first stage subjects, and adjust the testing procedure for a sample size in the second stage that is different than planned. This is possible under the assumption of non-informative dropouts; stage one is concluded when the number of non-missing patients is equal to the planned stage one sample size, and if over enrollment occurs in the first stage, they will only be considered for the second stage analysis \cite{Koyama}.
+\begin{itemize}
+  \item So I think a lot of what's going on is they are calculating p-values based on the attained sample size, but not actually a second stage critical value. 
+  \item Are papers like Tatsuki's finding critical values? Or just calculating p-values? Tatsuki calculates a new critical value. 
+  \item conclusions: read green and dahlberg, chen and ng, tatsukis, and zhao. I'm fairly certain tatsuki's is the only one with a new critical value when stage 2 is different. GD, CN may be "redesigns" The bayesian paper has a good explaination of faults in green and dahlberg, chen and ng. we can talk about these briefly in the first stage differing. 
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------Unplanned sample sizes in first stage----------------%
+\section{Unplanned Sample Sizes in First Stage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Decide later if subsections are needed.  \\
-\newline
-
-\subsection{\textit{Chang et al.} Alternative Designs and Adaptation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %--------------------Chang et al method----------------------%
+\subsection{\textit{Chang et al.} Alternative Designs and Adaptation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Because accruement of patients can often be unexpected in both stages, it's imperative that methods are available to handle situations with attained sample sizes that differ from the planned sample size. Chang \textit{et al} \cite{Chang} proposed an alternative design that is an extension of Simon’s two stage design to handle unplanned sample sizes in both the first and second stages. Let $n_1$, $n_t$, $r_1$, $r_t$, $p_0$, $p_1$, $\alpha$, and $\beta$ be the original, planned design parameters \textbf{can we call these design parameters? Jung calls design parameters p0,p1,alpha,beta} and let $n_1^\ast$ be the attained sample size in the first stage, $n_t^\ast$ be the attained sample size at the end of the second stage, and $n_2^\ast = n_t^\ast - n_1^\ast$.  Chang \textit{et al} proposes that type II error probability spent in stage I, based on planned and attained sample size, is given by $\beta_1 = \mbox{P}(X_1 \leq r_1 \vert n_1, p = p_1)$ 
-\newline
+Because accruement of patients can often be unexpected in the first stage, it's imperative that methods are available to handle situations with attained sample sizes that differ from the planned sample size. Chang \textit{et al} \cite{Chang} proposed an alternative design that is an extension of Simon’s two stage design to handle unplanned sample sizes in both the first and second stages. Because it's desired to stay as closely to the original design as possible, we investigate this method using only attained first stage sample sizes while maintaining the original second stage sample size or original total sample size. Let $n_1$, $n_t$, $r_1$, $r_t$, $p_0$, $p_1$, $\alpha$, and $\beta$ be the original, planned design parameters \textbf{can we call these design parameters? Jung calls design parameters p0,p1,alpha,beta} and let $n_1^\ast$ be the attained sample size in the first stage, $n_t^\ast$ be the attained sample size at the end of the second stage, and $n_2^\ast = n_t^\ast - n_1^\ast$.  Chang \textit{et al} proposes that type II error probability spent in stage I, based on planned and attained sample size, is given by $\beta_1 = \mbox{P}(X_1 \leq r_1 \vert n_1, p = p_1)$ \\
 Wu \textit{et al} \cite{Wu} also proposed an adjustment to Simon’s design based on attained sample sizes in both the first and second stages. Because Wu's methods don't work very well \textbf{wording}, we won't consider their method for the remainder of this paper. 
 
+\begin{itemize}
+\item Somewhere we want to explain that we want to keep either nt or n2 the same to stick as close to the orginal design as we can. Sticking to nt have properties closest to the original design- will have to look into this more and possibly with a more formal proof. I'm not sure what happens if both stages are different - this would get more complicated in prespecifying a design. I think Jeffrey's keeps the total sample size the same. 
+\item Talk about when the adaptation design and chang design will differ. (extreme sample size shifts? I cant remember.)
+\end{itemize}
 
-
+\begin{itemize}
+\item Green and Dahlberg review adjusting stage I and II sample sizes based on other designs (gehan, fleming, oncology group) but they say that simons is difficult to adjust. page 857 of green and dahlberg. 
+\item Chang is comparing his method to the SWOG in Green and Dahlbergs... can we use this for simon's design?
+\item Read chen and ng....
+\end{itemize}
 %------------------------------------------------------------%
 %----------- Background on likelihood design ----------------%
 %------------------------------------------------------------%
@@ -634,13 +626,13 @@ controlling type 1 error, but criteria is controlling PET - I think T1E will sti
 %------------------Questions------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \begin{itemize}
   \item Chapter 3: design parameters
   \item when do we introduce notation?
   \item Particularly when describing other peoples' methods, how do you cite?
   \item If likelihood design can translate into simon's design and have better properties - can that be used as a tool to come up with these designs instead of using Chang's method? Or are they different because you're operating under frequentist vs likelihood inference? 
 \end{itemize}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -651,7 +643,7 @@ controlling type 1 error, but criteria is controlling PET - I think T1E will sti
 %-------------- BIBLIOGRAPHY--------------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cite{Koyama}
+%\cite{Koyama}
 %\citep{Jung}
 %\nocite{Porcher}
 %\bibliographystyle{apacite}

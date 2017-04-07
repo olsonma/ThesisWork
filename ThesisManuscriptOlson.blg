@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ThesisManuscriptOlson.aux
+The style file: ieeetr.bst
+Database file #1: /Users/mollyolson/Documents/Vanderbilt/Masters_Thesis/ThesisWork/thesisBib.bib
+I was expecting a `,' or a `}'---line 59 of file /Users/mollyolson/Documents/Vanderbilt/Masters_Thesis/ThesisWork/thesisBib.bib
+ :  
+ :  author  = "Jeffrey Blume and Dan Ayers",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty author in Chang
+Warning--empty title in Chang
+Warning--empty journal in Chang
+Warning--empty year in Chang
+Warning--empty author in Wu
+Warning--empty title in Wu
+Warning--empty journal in Wu
+Warning--empty year in Wu
+You've used 5 entries,
+            1876 wiz_defined-function locations,
+            505 strings with 3957 characters,
+and the built_in function-call counts, 1047 in all, are:
+= -- 92
+> -- 22
+< -- 0
++ -- 10
+- -- 5
+* -- 76
+:= -- 138
+add.period$ -- 3
+call.type$ -- 5
+change.case$ -- 3
+chr.to.int$ -- 0
+cite$ -- 13
+duplicate$ -- 65
+empty$ -- 114
+format.name$ -- 5
+if$ -- 256
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 18
+num.names$ -- 3
+pop$ -- 25
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 41
+stack$ -- 0
+substring$ -- 57
+swap$ -- 23
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 8
+while$ -- 8
+width$ -- 6
+write$ -- 40
+(There was 1 error message)

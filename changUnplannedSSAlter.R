@@ -55,7 +55,8 @@ changDesAlter <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   
   
   for(i in astar:nta){
-    cp0 <- 1-pbinom(i-x1, nt-n1, p0)  ## conditional type I error
+   # cp0 <- 1-pbinom(i-x1, nt-n1, p0)  ## conditional type I error
+    cp0 <- 1-pbinom(i-x1, nta-n1a, p0)  ## conditional type I error
     cp0[x1 <= astar] <- 0 
     cp0[x1 > i]      <- 1  
     
@@ -71,7 +72,8 @@ changDesAlter <- function(a   = 7,   c  = 21, beta = 0.2, alpha = 0.05,
   ## calculate power
   y1       <- dbinom(x1,n1a,p1)   ## P(X1 = x1 | n1, p0)
   
-  cp1 <- 1-pbinom(i-x1, nt-n1, p1)  ## conditional power
+  #cp1 <- 1-pbinom(i-x1, nt-n1, p1)  ## conditional power
+  cp1 <- 1-pbinom(i-x1, nta-n1a, p1)  ## conditional power
   cp1[x1 <= astar] <- 0 
   cp1[x1 > i]      <- 1  
   
