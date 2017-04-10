@@ -20,16 +20,20 @@
 \addvspace {\li }
 \contentsline {chapter}{\hbox to\@tempdima {3\hfil }Unplanned Sample Sizes}{5}{chapter.3}
 \vspace {\li }
-\contentsline {section}{\numberline {3.1}Unplanned Sample Sizes in Second Stage}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}Unplanned Sample Sizes in First Stage}{6}{section.3.2}
+\contentsline {section}{\numberline {3.1}Unplanned (need word other than unplanned?) Sample Sizes in Second Stage}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Unplanned (new word?) Sample Sizes in First Stage}{6}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}\textit {Chang et al.} Alternative Designs and Adaptation}{6}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Likelihood Design}{7}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}Likelihood Design}{8}{subsection.3.2.2}
 \addvspace {\li }
-\contentsline {chapter}{\hbox to\@tempdima {4\hfil }Example}{10}{chapter.4}
+\contentsline {chapter}{\hbox to\@tempdima {4\hfil }Example}{12}{chapter.4}
 \vspace {\li }
 \addvspace {\li }
-\contentsline {chapter}{\hbox to\@tempdima {5\hfil }Results}{11}{chapter.5}
+\contentsline {chapter}{\hbox to\@tempdima {5\hfil }Results}{13}{chapter.5}
 \vspace {\li }
+\contentsline {section}{\numberline {5.1}Discussion}{13}{section.5.1}
+\contentsline {section}{\numberline {5.2}Appendix}{13}{section.5.2}
+\contentsline {section}{\numberline {5.3}Questions}{14}{section.5.3}
+\contentsline {section}{\numberline {5.4}Notes}{14}{section.5.4}
 \addvspace {\li }
-\contentsline {chapter}{ {REFERENCES\vspace {10mm}} }{12}{chapter.5}
+\contentsline {chapter}{ {REFERENCES\vspace {10mm}} }{15}{section.5.4}
 \contentsfinish 

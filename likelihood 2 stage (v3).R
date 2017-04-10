@@ -1,5 +1,5 @@
 
-like.2s=function(p1=0.40,p0=0.20,n.i=17,n=37,ka.i=(1/4),kb.i=4,ka=(1/4),kb=4,simon=FALSE,r1=3,r=10,output=FALSE){
+like.2s=function(p1=0.60,p0=0.40,n.i=17,n=41,ka.i=(1/4),kb.i=4,ka=(1/4),kb=4,simon=FALSE,r1=7,r=21,output=FALSE){
 ######################################
 ## Author: Jeffrey D. Blume
 ## Date:   June 2012

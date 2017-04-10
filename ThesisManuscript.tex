@@ -493,35 +493,45 @@ This chapter will talk about unplanned sample sizes when only the second stage i
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------Unplanned sample size in the first stage-----------%
-\section{Unplanned Sample Sizes in Second Stage}
+\section{Unplanned (need word other than unplanned?) Sample Sizes in Second Stage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-When over- or under-enrollment occurs, a straightforward solution is to perform an interim analysis on the planned number of first stage subjects, and adjust the testing procedure for a sample size in the second stage that is different than planned. This is possible under the assumption of non-informative dropouts; stage one is concluded when the number of non-missing patients is equal to the planned stage one sample size, and if over enrollment occurs in the first stage, they will only be considered for the second stage analysis \cite{Koyama}.
-\begin{itemize}
-  \item So I think a lot of what's going on is they are calculating p-values based on the attained sample size, but not actually a second stage critical value. 
-  \item Are papers like Tatsuki's finding critical values? Or just calculating p-values? Tatsuki calculates a new critical value. 
-  \item conclusions: read green and dahlberg, chen and ng, tatsukis, and zhao. I'm fairly certain tatsuki's is the only one with a new critical value when stage 2 is different. GD, CN may be "redesigns" The bayesian paper has a good explaination of faults in green and dahlberg, chen and ng. we can talk about these briefly in the first stage differing. 
-\end{itemize}
+When over- or under-enrollment occurs, a straightforward solution is to perform an interim analysis on the planned number of first stage subjects, and adjust the testing procedure for a sample size in the second stage that is different than planned. This is possible under the assumption of non-informative dropouts; stage one is concluded when the number of non-missing patients is equal to the planned stage one sample size, and if over enrollment occurs in the first stage, they will only be considered for the second stage analysis \cite{Koyama}. Literature exists describing point estimation of the response rate and p-values for hypothesis testing when stage two sample size is modified. A review of these methods can be found by Porcher et al. \cite{Porcher}, though we only consider hypothesis testing when the trial design can be prespecified, rather than calculating a p-value from the attained data \textbf{call this proper p-value?}, here \textbf{(I basically mean that we want to be able to prespecify the design with critical values for potential sample size deviations. A p-value is calculated after the trial and basically tries to get the correct p-value (can't use a conventional p-value) for trial deviations rather than pre-specifying rejection criteria/prespecifying a design with those sample sizes)}. Koyama et al. propose a method for inference when stage 2 sample sizes deviate from the planned stage 2 sample size \cite{Koyama}. Let $n_1, n_t, r_1, r_t, \alpha$ and $\beta$ be the original design parameters. They calculate a new critical value, $r_t^\ast$, by finding the value of $r_t^\ast$ such that $P_{p_0}[X_2' \geq r_t^\ast | X_1 = x_1] \leq P_{p_0}[X_2 \geq r_t(x_1) | X_1 = x_1]$ ...     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---------Unplanned sample sizes in first stage----------------%
-\section{Unplanned Sample Sizes in First Stage}
+\section{Unplanned (new word?) Sample Sizes in First Stage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Decide later if subsections are needed.  \\
+\newline
+\indent Because accruement of patients can often be unexpected in the first stage, it's imperative that methods are available to handle situations with attained sample sizes that differ from the planned sample size. Green and Dahlberg \cite{Green} and Chen and Ng \cite{Chen} propose methods for inference when first stage sample sizes differ than planned. Green and Dahlberg extended Southwest Oncology Group's inference method by suggesting to perform a hypothesis test on $H_0: p=p_1$ versus $H_1: p < p_1$ in the first stage at the 0.02 $\alpha$-level and concluding futility if the p-value is $\leq 0.02$. They then suggest testing $H_0: p=p_0$ versus $H_1: p < p_0$ in the second stage at the 0.05 level. Li et al. indicate that this approach controls type I error and acheives desired power, though this approach is founded on an overall $\alpha$-level of 0.05, and it is unclear how this method would generalize to any $\alpha$-level \cite{Li}. Chang et al. also point out that Green and Dahlberg's designs can possibly be quite different than the planned designed. Chen and Ng ---does this stuff--- \cite{Chen}. This is why this approach is not desired (I think you can prespecify this design though.)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %--------------------Chang et al method----------------------%
 \subsection{\textit{Chang et al.} Alternative Designs and Adaptation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Because accruement of patients can often be unexpected in the first stage, it's imperative that methods are available to handle situations with attained sample sizes that differ from the planned sample size. Chang \textit{et al} \cite{Chang} proposed an alternative design that is an extension of Simon’s two stage design to handle unplanned sample sizes in both the first and second stages. Because it's desired to stay as closely to the original design as possible, we investigate this method using only attained first stage sample sizes while maintaining the original second stage sample size or original total sample size. Let $n_1$, $n_t$, $r_1$, $r_t$, $p_0$, $p_1$, $\alpha$, and $\beta$ be the original, planned design parameters \textbf{can we call these design parameters? Jung calls design parameters p0,p1,alpha,beta} and let $n_1^\ast$ be the attained sample size in the first stage, $n_t^\ast$ be the attained sample size at the end of the second stage, and $n_2^\ast = n_t^\ast - n_1^\ast$.  Chang \textit{et al} proposes that type II error probability spent in stage I, based on planned and attained sample size, is given by $\beta_1 = \mbox{P}(X_1 \leq r_1 \vert n_1, p = p_1)$ \\
-Wu \textit{et al} \cite{Wu} also proposed an adjustment to Simon’s design based on attained sample sizes in both the first and second stages. Because Wu's methods don't work very well \textbf{wording}, we won't consider their method for the remainder of this paper. 
+Chang \textit{et al} \cite{Chang} proposed an alternative design that is an extension of Simon's two stage design in order to handle unplanned sample sizes in both the first and second stages. This method calculates new critical values for attained sample sizes, and thus one is able to create and pre-specify a new design based on a preferred Simon or Admissible design in defense of the events of unplanned sample sizes \textbf{(basically trying to say in order to be ready with adjusted designs for unplanned sample sizes in case they occur)}. Because it's desired to stay as closely to the original design as possible, we investigate this method using only attained first stage sample sizes while maintaining the original second stage sample size or original total sample size. Again, let $n_1$, $n_t$, $r_1$, $r_t$, $p_0$, $p_1$, $\alpha$, and $\beta$ be the original, planned design parameters. In the case that we let the total sample size be planned, let $n_1^{\ast \ast}$ be the attained sample size in the first stage and $n_2^{\ast\ast} = n_t - n_1^{\ast\ast}$. In the case that we let the second stage sample size remain as planned, let $n_1^{\ast\ast}$ again be the attained sample size in the first stage and $n_t^{\ast\ast} = n_2 + n_1^{\ast\ast}$. \\
+\indent Chang \textit{et al} proposes that type II error probability spent in stage I, based on planned and attained sample size, is given by $\beta_1 = \mbox{P}(X_1 \leq r_1 \vert n_1, p = p_1)$ Based on the attained sample sizes, we choose to spend type II error in the first stage based on the the type II error probability spending function 
+$$
+\beta(m) = \left\{
+        \begin{array}{ll}
+            \beta_1 m/n_1 & \quad \text{if } m\leq n_1 \\
+            \beta_1 + (\beta - \beta_1)(m - n_1)/n_2 & \quad \text{if } m > n_1
+        \end{array}
+    \right.
+$$
+We then find a new stage one critical value, $s_1$, based on this probability spending function such that $P(X_1 \leq s_1 | n_1^{\ast\ast}) \approx \beta(n_1^{\ast\ast})$, where $\approx$ means ``closest to." After $s_1$ is selected, we then search for an integer for the second stage critical value, $s_t$, that satisfies
+\begin{equation*}
+\begin{aligned}
+& P(X_1 > s_1, X_t > s_t | n_1^{\ast\ast}, m_2, p_0) \\
+= & \sum_{s_1}^{n_1^{\ast\ast}} P(X_2 > s_t - X_1 | X_1 = x_1) P(X_1 > s_1) \\
+ \leq & \alpha \\
+\end{aligned}
+\end{equation*}
+where $m_2 = n_2$ or $n_2^{\ast\ast}$. 
+Chang et al.'s design can be used for any $\alpha$-level and are flexible, close to the original design, and preserve desired Frequentist characteristics. \\
+%Wu \textit{et al} \cite{Wu} also proposed an adjustment to Simon’s design based on attained sample sizes in both the first and second stages. Because Wu's methods don't work very well \textbf{wording}, we won't consider their method for the remainder of this paper. 
+Because we prefer to be conservative when straying from a desired Simon or Admissible design, we modify Chang et al.'s design by selecting $s_1$ that preserves the probability of early termination under the null. We select $s_1$ such that $$P(X_1 \leq s_1 | n_1^{\ast\ast}, p_0) \approx P(X_1 \leq r_1 | n_1, p_0)$$ We then select the stage two critical value, $s_t$, in the same fashion as Chang's design.  
 
 \begin{itemize}
-\item Somewhere we want to explain that we want to keep either nt or n2 the same to stick as close to the orginal design as we can. Sticking to nt have properties closest to the original design- will have to look into this more and possibly with a more formal proof. I'm not sure what happens if both stages are different - this would get more complicated in prespecifying a design. I think Jeffrey's keeps the total sample size the same. 
-\item Talk about when the adaptation design and chang design will differ. (extreme sample size shifts? I cant remember.)
-\end{itemize}
-
-\begin{itemize}
-\item Green and Dahlberg review adjusting stage I and II sample sizes based on other designs (gehan, fleming, oncology group) but they say that simons is difficult to adjust. page 857 of green and dahlberg. 
-\item Chang is comparing his method to the SWOG in Green and Dahlbergs... can we use this for simon's design?
 \item Read chen and ng....
 \end{itemize}
 %------------------------------------------------------------%
@@ -530,6 +540,15 @@ Wu \textit{et al} \cite{Wu} also proposed an adjustment to Simon’s design base
 \subsection{Likelihood Design}
 %\vspace{-5mm}
 
+Briefly, the likelihood stage II design uses the likelihood ratio, as opposed to a p-value, as a measure of evidence \cite{Blume}. Here, the likelihood ratio is 
+\begin{equation*}
+\begin{aligned}
+\mbox{LR}_n & = \frac{\mbox{L}_n(p_1)}{\mbox{L}_n(p_0)} \\
+&= \frac{p_1^{x_t}(1-p_1)^{n_t-x_t}}{p_0^{x_1}(1-p_0)^{n_t-x_t}} \\
+& \in \left\{[0, 1/k], [1/k,k], [k, \infty)\right\}
+\end{aligned}
+\end{equation*}
+and has three evidential zones: evidence for the null hypothesis, weak evidence, and evidence for the alternative hypothesis. If the $\mbox{LR}_n \in [0, 1/k]$, there is evidence for the null hypothesis, if $\mbox{LR}_n \in [1/k,k]$, there is weak evidence for either hypothesis, and if $\mbox{LR}_n \in [k,\infty]$, there is evidence for the alternative hypothesis. 
 \noindent Likelihood characteristics:
 
 \vspace{3mm}
@@ -608,33 +627,43 @@ controlling type 1 error, but criteria is controlling PET - I think T1E will sti
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%------------------------------------------------%
+%----------------Discussion--------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\section{Discussion}
+\begin{itemize}
+  \item Numerical study shows that keeping nt the same as the original has better properties.
+  \item Talk about when the adaptation design and chang design will differ. (extreme sample size shifts? I cant remember.)
+  \item Compare the design approaches
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%------------------------------------------------%
+%-----------------Appendix-------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\section{Appendix}
+Maybe put the chang design here that goes beyond stage 2 sample size being origianl total and original second stage?
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------------Questions------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\section{Questions}
 
 \begin{itemize}
-  \item Chapter 3: design parameters
-  \item when do we introduce notation?
   \item Particularly when describing other peoples' methods, how do you cite?
   \item If likelihood design can translate into simon's design and have better properties - can that be used as a tool to come up with these designs instead of using Chang's method? Or are they different because you're operating under frequentist vs likelihood inference? 
+  \item Chang's method - would we use a conventional p-value?
+  \item Koyama's method: equation (5) does X2' have to be attained? is this calculated after stage 2 happened? If so, isn't that not what we are focusing on? aren't we trying to prespecify a design rather than deal with what happened?
+  \item Why do we choose PET closest to the original? 
 \end{itemize}
 
-
+\section{Notes}
+\begin{itemize}
+  \item So I think a lot of what's going on is they are calculating p-values based on the attained sample size, but not actually a second stage critical value. 
+  \item Are papers like Tatsuki's finding critical values? Or just calculating p-values? Tatsuki calculates a new critical value. 
+  \item conclusions: read green and dahlberg, chen and ng, tatsukis, and zhao. I'm fairly certain tatsuki's is the only one with a new critical value when stage 2 is different. GD, CN may be "redesigns" The bayesian paper has a good explaination of faults in green and dahlberg, chen and ng. we can talk about these briefly in the first stage differing. 
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------------------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

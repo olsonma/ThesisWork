@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 APR 2017 18:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  9 APR 2017 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1118,6 +1118,26 @@ text indent by \l@... (toc, 0):  17.62482pt
 number indent by parent (toc, 0):  0.0pt
 text indent calculated (toc, 0): 17.62482pt
 number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  17.62482pt
+text indent by \l@... (toc, 1):  27.02475pt
+number indent by parent (toc, 1):  17.62482pt
+text indent calculated (toc, 1): 21.0pt
+number indent calculated (toc, 1): 17.62482pt
+number indent by \l@... (toc, 1):  17.62482pt
+text indent by \l@... (toc, 1):  27.02475pt
+number indent by parent (toc, 1):  17.62482pt
+text indent calculated (toc, 1): 21.0pt
+number indent calculated (toc, 1): 17.62482pt
+number indent by \l@... (toc, 1):  17.62482pt
+text indent by \l@... (toc, 1):  27.02475pt
+number indent by parent (toc, 1):  17.62482pt
+text indent calculated (toc, 1): 21.0pt
+number indent calculated (toc, 1): 17.62482pt
+number indent by \l@... (toc, 1):  17.62482pt
+text indent by \l@... (toc, 1):  27.02475pt
+number indent by parent (toc, 1):  17.62482pt
+text indent calculated (toc, 1): 21.0pt
+number indent calculated (toc, 1): 17.62482pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  17.62482pt
 number indent by parent (toc, 0):  0.0pt
@@ -1186,47 +1206,41 @@ Chapter 3.
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 509--512
+Underfull \hbox (badness 10000) in paragraph at lines 504--509
 
  []
 
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 553--555
+[6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 572--574
 
  []
 
-[8]
-Overfull \hbox (60.97237pt too wide) in paragraph at lines 573--583
+[10]
+Overfull \hbox (60.97237pt too wide) in paragraph at lines 592--602
 [] []$ 
  []
 
-[9]
+[11]
 Chapter 4.
-[10
+[12
 
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--608
+Underfull \hbox (badness 10000) in paragraph at lines 621--627
 
  []
 
-(./ThesisManuscript.bbl [11
+[13
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 654.
- [12
+] (./ThesisManuscript.bbl [14])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 683.
+ [15
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 654.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 683.
  (./ThesisManuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 654.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 683.
 
 
  *File List*
@@ -1364,19 +1378,19 @@ ThesisManuscript.out
 ThesisManuscript.bbl
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 654.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 683.
 Package rerunfilecheck Info: File `ThesisManuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 49DADA7B7BDEF6E003074927344C4C1F;814.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 654.
+(rerunfilecheck)             Checksum: B46C80BB2562A7892E257EEB095F6B04;1086.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 683.
  ) 
 Here is how much of TeX's memory you used:
- 14848 strings out of 493014
- 221050 string characters out of 6133351
+ 14870 strings out of 493014
+ 221248 string characters out of 6133351
  354858 words of memory out of 5000000
- 17988 multiletter control sequences out of 15000+600000
- 56237 words of font info for 124 fonts, out of 8000000 for 9000
+ 17998 multiletter control sequences out of 15000+600000
+ 56659 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,72p,1701b,435s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,72p,1760b,435s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/l
 ocal/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/201
@@ -1389,10 +1403,10 @@ nts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/u
 rw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/ut
 mb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ThesisManuscript.pdf (18 pages, 147822 bytes).
+Output written on ThesisManuscript.pdf (21 pages, 158172 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 44 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

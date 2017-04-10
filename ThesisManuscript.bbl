@@ -17,10 +17,22 @@ S.-H. Jung, Y.~Lee, K.~Kim, and S.~L. George, ``Admissible two-stage designs
   for phase ii cancer clinical trials,'' {\em Statistics In Medicine}, vol.~23,
   pp.~561--569, 2004.
 
+\bibitem{Green}
+``Planned versus attained design in phase ii clinical trials,'' {\em Statistics
+  in Medicine}, vol.~11, pp.~853--862, 1992.
+
+\bibitem{Chen}
+T.~Chen and T.~Ng, ``Optimal flexible designs in phase ii clinical trials,''
+  {\em Statistics in Medicine}, vol.~17, pp.~2301--2312, 1998.
+
+\bibitem{Li}
+``A bayesian approach for unplanned sample sizes in phase ii clinical trials,''
+  {\em Clinical Trials}, vol.~9, pp.~293--302, 2012.
+
 \bibitem{Chang}
 
 
-\bibitem{Wu}
-
+\bibitem{Blume}
+J.~Blume and D.~Ayers
 
 \end{thebibliography}
