@@ -172,7 +172,7 @@
 \makeatletter
 \def\@makechapterhead#1{
   {\parindent \z@ %\centering
-    \huge \fontfamily{qcs}\selectfont
+    \LARGE \fontfamily{qcs}\selectfont
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
         \@chapapp\space \thechapter
@@ -548,7 +548,8 @@ Briefly, the likelihood stage II design uses the likelihood ratio, as opposed to
 & \in \left\{[0, 1/k], [1/k,k], [k, \infty)\right\}
 \end{aligned}
 \end{equation*}
-and has three evidential zones: evidence for the null hypothesis, weak evidence, and evidence for the alternative hypothesis. If the $\mbox{LR}_n \in [0, 1/k]$, there is evidence for the null hypothesis, if $\mbox{LR}_n \in [1/k,k]$, there is weak evidence for either hypothesis, and if $\mbox{LR}_n \in [k,\infty]$, there is evidence for the alternative hypothesis. 
+and has three evidential zones: evidence for the null hypothesis, weak evidence, and evidence for the alternative hypothesis. If the $\mbox{LR}_n \in [0, 1/k]$, there is evidence for the null hypothesis, if $\mbox{LR}_n \in [1/k,k]$, there is weak evidence for either hypothesis, and if $\mbox{LR}_n \in [k,\infty]$, there is evidence for the alternative hypothesis. \\
+
 \noindent Likelihood characteristics:
 
 \vspace{3mm}
@@ -655,7 +656,7 @@ Maybe put the chang design here that goes beyond stage 2 sample size being origi
   \item If likelihood design can translate into simon's design and have better properties - can that be used as a tool to come up with these designs instead of using Chang's method? Or are they different because you're operating under frequentist vs likelihood inference? 
   \item Chang's method - would we use a conventional p-value?
   \item Koyama's method: equation (5) does X2' have to be attained? is this calculated after stage 2 happened? If so, isn't that not what we are focusing on? aren't we trying to prespecify a design rather than deal with what happened?
-  \item Why do we choose PET closest to the original? 
+  \item Why do we choose PET closest to the original? - consider choosing closest PET, being conservative. mention that there are two ways to think about it. one is conservative and one is closest and they're pretty close to each other. 
 \end{itemize}
 
 \section{Notes}
@@ -663,6 +664,7 @@ Maybe put the chang design here that goes beyond stage 2 sample size being origi
   \item So I think a lot of what's going on is they are calculating p-values based on the attained sample size, but not actually a second stage critical value. 
   \item Are papers like Tatsuki's finding critical values? Or just calculating p-values? Tatsuki calculates a new critical value. 
   \item conclusions: read green and dahlberg, chen and ng, tatsukis, and zhao. I'm fairly certain tatsuki's is the only one with a new critical value when stage 2 is different. GD, CN may be "redesigns" The bayesian paper has a good explaination of faults in green and dahlberg, chen and ng. we can talk about these briefly in the first stage differing. 
+  \item inference from likelihood is more straightforward. the authors in koyama have shown that the p-value depends on the design. p-value's in multistage designs depend on the p-value. first stage is more complex. 
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------------------------------------------%
@@ -672,13 +674,10 @@ Maybe put the chang design here that goes beyond stage 2 sample size being origi
 %-------------- BIBLIOGRAPHY--------------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\cite{Koyama}
-%\citep{Jung}
-%\nocite{Porcher}
+
 %\bibliographystyle{apacite}
 \bibliographystyle{ieeetr}
 \bibliography{/Users/mollyolson/Documents/Vanderbilt/Masters_Thesis/ThesisWork/thesisBib}		
-%\printbibliography
 
 \end{document} 
 

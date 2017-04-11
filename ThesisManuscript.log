@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  9 APR 2017 14:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  10 APR 2017 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1210,13 +1210,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 504--509
 
  []
 
-[6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 572--574
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 550--552
+
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 573--575
 
  []
 
 [10]
-Overfull \hbox (60.97237pt too wide) in paragraph at lines 592--602
+Overfull \hbox (60.97237pt too wide) in paragraph at lines 593--603
 [] []$ 
  []
 
@@ -1227,20 +1232,20 @@ Chapter 4.
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--627
+Underfull \hbox (badness 10000) in paragraph at lines 622--628
 
  []
 
 [13
 
-] (./ThesisManuscript.bbl [14])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 683.
- [15
+] [14] (./ThesisManuscript.bbl [15])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 682.
+ [16
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 683.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 682.
  (./ThesisManuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 683.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 682.
 
 
  *File List*
@@ -1378,19 +1383,19 @@ ThesisManuscript.out
 ThesisManuscript.bbl
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 683.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 682.
 Package rerunfilecheck Info: File `ThesisManuscript.out' has not changed.
 (rerunfilecheck)             Checksum: B46C80BB2562A7892E257EEB095F6B04;1086.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 683.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 682.
  ) 
 Here is how much of TeX's memory you used:
- 14870 strings out of 493014
- 221248 string characters out of 6133351
+ 14871 strings out of 493014
+ 221255 string characters out of 6133351
  354858 words of memory out of 5000000
  17998 multiletter control sequences out of 15000+600000
  56659 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,72p,1760b,435s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,72p,1760b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/l
 ocal/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/201
@@ -1403,10 +1408,10 @@ nts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/u
 rw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/ut
 mb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ThesisManuscript.pdf (21 pages, 158172 bytes).
+Output written on ThesisManuscript.pdf (22 pages, 158713 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 275 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
+ 45 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
