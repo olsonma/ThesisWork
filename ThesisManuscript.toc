@@ -18,12 +18,12 @@
 \contentsline {chapter}{\hbox to\@tempdima {2\hfil }Background}{3}{chapter.2}
 \vspace {\li }
 \addvspace {\li }
-\contentsline {chapter}{\hbox to\@tempdima {3\hfil }Unplanned Sample Sizes}{5}{chapter.3}
+\contentsline {chapter}{\hbox to\@tempdima {3\hfil }Deviation from Planned Sample Sizes}{5}{chapter.3}
 \vspace {\li }
-\contentsline {section}{\numberline {3.1}Unplanned (need word other than unplanned?) Sample Sizes in Second Stage}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}Unplanned (new word?) Sample Sizes in First Stage}{6}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}\textit {Chang et al.} Alternative Designs and Adaptation}{6}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Likelihood Design}{8}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.1}Deviation from Planned Sample Sizes in Second Stage}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Deviation from Planned Sample Sizes in First Stage}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\textit {Chang et al.} Alternative Designs and Adaptation}{7}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Likelihood Design}{9}{subsection.3.2.2}
 \addvspace {\li }
 \contentsline {chapter}{\hbox to\@tempdima {4\hfil }Example}{12}{chapter.4}
 \vspace {\li }
