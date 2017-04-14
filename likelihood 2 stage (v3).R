@@ -1,5 +1,5 @@
 
-like.2s=function(p1=0.60,p0=0.40,n.i=17,n=41,ka.i=(1/4),kb.i=4,ka=(1/4),kb=4,simon=FALSE,r1=7,r=21,output=FALSE){
+like.2s=function(p1=0.60,p0=0.40,n.i=17,n=41,ka.i=(1/4),kb.i=4,ka=(1/4),kb=4,simon=TRUE,r1=7,r=21,output=FALSE){
 ######################################
 ## Author: Jeffrey D. Blume
 ## Date:   June 2012
@@ -23,7 +23,7 @@ like.2s=function(p1=0.60,p0=0.40,n.i=17,n=41,ka.i=(1/4),kb.i=4,ka=(1/4),kb=4,sim
 ##
 ## LR and FDR computations assume flat prior
 #######################################	
-#p1=0.60;p0=0.40;n.i=19;n=41;ka.i=(1/4);kb.i=4;ka=(1/4);kb=4;simon=TRUE;r1=8;r=21;output=TRUE
+#p1=0.60;p0=0.40;n.i=17;n=41;ka.i=(1/4);kb.i=4;ka=(1/4);kb=4;simon=TRUE;r1=7;r=21;output=TRUE
 
 ## returns odds ratio
 or=(p1*(1-p0))/((p0)*(1-p1))
@@ -31,7 +31,7 @@ or=(p1*(1-p0))/((p0)*(1-p1))
 if (simon==TRUE) {
 ka.i=(or^(r1))*((1-p1)/(1-p0))^(n.i)
 kb.i=Inf
-ka=(or^(r))*((1-p1)/(1-p0))^(n)
+ka=1#(or^(r))*((1-p1)/(1-p0))^(n)
 kb=Inf
 }
 
@@ -116,6 +116,8 @@ cat("#########################################################################\n
 if (simon==FALSE ) {cat("##  Likelihood Two-Stage Design \n")}
 else (cat("##  Simon's Optimal Two-Stage Design (Likelihood display) \n"))
 cat("## ---------------------------------------------------------------\n")
+cat("##  r.i (Simon) : ",bot.i,"\n")
+cat("##  r   (Simon) : ",ceiling(bot),"\n")
 cat("##  Hypotheses  : H0: p = ",round(p0,2)," ;  H1: p = ",round(p1,2),"  (OR =",round(or,2),")\n",sep="")
 cat("##  Interim     : SS = ",sprintf("%3.0f",round(n.i,1)),"    ;  continue if 1/", round(1/ka.i,2)," < LR < ",round(kb.i,2),"\n",sep="")
 cat("##  Final       : SS = ",sprintf("%3.0f",round(n,1)),  "    ;  weak ev  if 1/", round(1/ka,2)," < LR < ",round(kb,2),"\n",sep="")
