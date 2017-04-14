@@ -23,15 +23,15 @@ like.2s=function(p1=0.60,p0=0.40,n.i=17,n=41,ka.i=(1/4),kb.i=4,ka=(1/4),kb=4,sim
 ##
 ## LR and FDR computations assume flat prior
 #######################################	
-#p1=0.60;p0=0.40;n.i=17;n=41;ka.i=(1/4);kb.i=4;ka=(1/4);kb=4;simon=TRUE;r1=7;r=21;output=TRUE
+#p1=0.60;p0=0.40;n.i=16;n=41;ka.i=(1/4);kb.i=4;ka=(1/4);kb=4;simon=TRUE;r1=7;r=21;output=TRUE
 
 ## returns odds ratio
 or=(p1*(1-p0))/((p0)*(1-p1))
 
 if (simon==TRUE) {
-ka.i=(or^(r1))*((1-p1)/(1-p0))^(n.i)
+ka.i=1/3.375 #(or^(r1))*((1-p1)/(1-p0))^(n.i)
 kb.i=Inf
-ka=1#(or^(r))*((1-p1)/(1-p0))^(n)
+ka=1         #(or^(r))*((1-p1)/(1-p0))^(n)
 kb=Inf
 }
 
@@ -41,6 +41,11 @@ kb=Inf
 
 top.i=round((log(kb.i)-n.i*log((1-p1)/(1-p0)))/log(or),10)
 bot.i=round((log(ka.i)-n.i*log((1-p1)/(1-p0)))/log(or),10)
+  ## if our r1 (bot.i) isn't an integer, change accordingly. The LR will then change, so change that too. 
+if(floor(bot.i) < bot.i & bot.i < ceiling(bot.i)){
+  bot.i <- floor(bot.i)
+  ka.i  <- (or^(bot.i))*((1-p1)/(1-p0))^(n.i)
+}
 
 top=round((log(kb)-n*log((1-p1)/(1-p0)))/log(or),10)
 bot=round((log(ka)-n*log((1-p1)/(1-p0)))/log(or),10)
