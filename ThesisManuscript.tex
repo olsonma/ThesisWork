@@ -28,6 +28,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\usepackage[natbibapa]{apacite}
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{5cm}}
+\newcolumntype{R}{>{\centering\arraybackslash}m{2cm}}
 
 \usepackage{amsmath}
 \usepackage{mathtools}
@@ -435,6 +438,7 @@ In this thesis, we develop .....
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %---------------------------------------------------------------------------------------------------------------%
 %------------------------------------------------CHAPTER1------------------------------------------------%
 %---------------------------------------------------------------------------------------------------------------%
@@ -476,7 +480,7 @@ We will only talk about extensions to Simon's design, hypothesis testing, and on
 \newline
 \textbf{}
 \newline
-\indent Simon's II stage designs for clinical trials are common designs for phase II oncology clinical trials \cite{Simon}. In Simon's designs, the null hypothesis $\mbox{H}_0: p \leq p_0$ is tested against the alternative $\mbox{H}_1: p > p_0$, where $p$ is the true response probability, $p_0$ is the highest probability of response that would indicate that the research regimen is uninteresting and $p_1$ is the lowest probability of response that would indicate that the research regimen warrents further investigation. Under these hypotheses, it is required that the type I error rate remain less than $\alpha$ and power remain above $1-\beta$. The general framework of Simon's design includes a sample size and critical value in each of the two stages. Let $n_1$ denote the first stage sample size, $n_t$ the sample size at the end of the second stage, $r_1$ the first stage critical value, and $r_t$ the critical value for the end of the second stage. Let $X_1$ be the number of successes observed in the first stage and $X_2$ be the number of additional success in the second stage. In the first stage, $n_1$ patients are enrolled. If $r_1$ or fewer patients ($X_1 \leq r_1$) are successes, then the regimen is rejected and the trial is stopped for futility. If $r_1 + 1$ patients are successful, then the trial continues to the second stage. In the second stage, $n_2 = n_t - n_1$ patients are enrolled. If $r_t$ or fewer out of the $n_t$ patients are successful ($X_t = X_1 + X_2 \leq r_t$), the treatment is considered to be futile, otherwise if $r_t + 1$ patients succeed, the treatment is considered to be effective and warrent further study.  \\
+\indent Simon's II stage designs for clinical trials are common designs for phase II oncology clinical trials \cite{Simon}. In Simon's designs, the null hypothesis $\mbox{H}_0: p \leq p_0$ is tested against the alternative $\mbox{H}_1: p > p_1$, where $p$ is the true response probability, $p_0$ is the highest probability of response that would indicate that the research regimen is uninteresting and $p_1$ is the lowest probability of response that would indicate that the research regimen warrents further investigation. Under these hypotheses, it is required that the type I error rate remain less than $\alpha$ and power remain above $1-\beta$. The general framework of Simon's design includes a sample size and critical value in each of the two stages. Let $n_1$ denote the first stage sample size, $n_t$ the sample size at the end of the second stage, $r_1$ the first stage critical value, and $r_t$ the critical value for the end of the second stage. Let $X_1$ be the number of successes observed in the first stage and $X_2$ be the number of additional success in the second stage. In the first stage, $n_1$ patients are enrolled. If $r_1$ or fewer patients ($X_1 \leq r_1$) are successes, then the regimen is rejected and the trial is stopped for futility. If $r_1 + 1$ patients are successful, then the trial continues to the second stage. In the second stage, $n_2 = n_t - n_1$ patients are enrolled. If $r_t$ or fewer out of the $n_t$ patients are successful ($X_t = X_1 + X_2 \leq r_t$), the treatment is considered to be futile, otherwise if $r_t + 1$ patients succeed, the treatment is considered to be effective and warrent further study.  \\
 \indent Design characteristics: Let $B$ denote the cumulative binomial distribution function and $b$ denote the binomial probability mass function. The probability of early termination with probability $p$ in Simon's designs is given by PET = $B(r_1, p, n_1)$. The expected sample size for probability $p$ is then $\mbox{EN} = n_1 + (1-\mbox{PET})n_2$. The probability of rejecting a drug for probability $p$ is then  $PR(p) = B(r_1, p, n_1) + \sum_{x=r_1+1}^{min[n_1,r]} b(x, p, n_1) B(r-x,p,n_2)$. It is required that $PR(p) \geq 1-\alpha$ and $PR(p) \leq \beta$. Given these constraints, it follows that unconditional conditional power, $UCP(p)$, given probability $p$, is given by $1-PR(p) = 1 - \left( B(r_1, p, n_1) + \sum_{x=r_1+1}^{min[n_1,r]} b(x, p, n_1) B(r-x,p,n_2) \right) = \sum_{r_1+1}^{n_1} \left\{\sum_{x_2 = r_t-x_1+1}^{n_2} b(x_2, p, n_2) \right\} b(x_1, p, n_1)$, and $UCP(p_1) \geq 1-\beta$ and $UCP(p_0) \leq \alpha$. \\
 \indent Simon introduced optimal and minimax designs. An optimal two-stage design is a Simon's design in which minimizes the expected sample size under the null hypothesis, response value $p_0$, ($\mbox{EN}_0$) while still satisfying the type I and type II error probability restrictions. The minimax design will minimize the maximum sample size ($n_1 + n_2$). Jung \textit{et al.} \cite{Jung} introduced an extension of Simon's designs called admissible designs that are considered a compromise between optimal and minimax designs because they have similar maximim sample size as the minimax design and a similar $EN_0$ to the optimal design.  Admissible designs optimize a straight line on the ($n$, $EN$)-plane, $q \times n + (1-q) \times \mbox{EN}$, for some $q \in [0,1]$ \cite{Jung}. Admissible designs satisfy ($\alpha, \beta$) constraints and obtain an expected sample size somewhere between optimal and minimax designs. Admissible designs may be attractive because they have agreeable properties of both the minimax and optimal design.  Simon does not allow for early termination of the trial for efficacy \cite{Simon}, and we do not consider that design here. 
 
@@ -530,7 +534,7 @@ We then find a new stage one critical value, $s_1$, based on this probability sp
 where $m_2 = n_2$ or $n_2^{\ast\ast}$. 
 Chang et al.'s design can be used for any $\alpha$-level and are flexible, close to the original design, and preserve desired Frequentist characteristics. \\
 %Wu \textit{et al} \cite{Wu} also proposed an adjustment to Simon’s design based on attained sample sizes in both the first and second stages. Because Wu's methods don't work very well \textbf{wording}, we won't consider their method for the remainder of this paper. 
-Because we prefer to be conservative when straying from a desired Simon or Admissible design, we modify Chang et al.'s design by selecting $s_1$ that preserves the probability of early termination under the null. We select $s_1$ such that $$P(X_1 \leq s_1 | n_1^{\ast\ast}, p_0) \approx P(X_1 \leq r_1 | n_1, p_0)$$ We then select the stage two critical value, $s_t$, in the same fashion as Chang's design.  
+Because we prefer to be conservative when straying from a desired Simon or Admissible design, we modify Chang et al.'s design by selecting $s_1$ that preserves the probability of early termination under the null. We select $s_1$ such that $$P(X_1 \leq s_1 | n_1^{\ast\ast}, p_0) \leq P(X_1 \leq r_1 | n_1, p_0)$$ We then select the stage two critical value, $s_t$, in the same fashion as Chang's design. Another option would be to be choose $s_1$ such that the probability of early termination with the redesign is closest to the original design. In either case, the designs tend to be close, so we consider the case where the probability of early termination is conservative relative to the original.   
 
 %------------------------------------------------------------%
 %----------- Background on likelihood design ----------------%
@@ -546,35 +550,34 @@ Briefly, the likelihood stage II design uses the likelihood ratio, as opposed to
 & \in \left\{[0, 1/k], [1/k,k], [k, \infty)\right\}
 \end{aligned}
 \end{equation*}
-and has three evidential zones: evidence for the null hypothesis, weak evidence, and evidence for the alternative hypothesis. If the $\mbox{LR}_n \in [0, 1/k]$, there is evidence for the null hypothesis, if $\mbox{LR}_n \in [1/k,k]$, there is weak evidence for either hypothesis, and if $\mbox{LR}_n \in [k,\infty]$, there is evidence for the alternative hypothesis. \\
-
-\noindent Likelihood characteristics:
-
-\vspace{3mm}
-%\begin{flushleft}
-%\begin{equation*}
-$\begin{aligned}
-  &LR_n = \frac{L_n(\theta_1)}{L_n(\theta_0)} \in \left\{[0, 1/k], [1/k,k], [k, \infty)\right\} \\
-  &\text{Probability of Weak Evidence} \\
-  &\indent \gamma_p = P(k_a \leq LR_n \leq K_b | H_p), k_a \leq k_b \\
-  &\text{Probability of Strong Evidence} \\
-  &\indent \eta_1 = P(LR_n > k_b | H_1) \\
-  &\indent \eta_1 = P(LR_n < k_a | H_0) \\
-  &\text{Probability of Observing Misleading Evidence}\\
-  &\indent \tau_0 = P(LR_n > k_b | H_0), \tau_0 \leq 1/k_b \\
-  &\indent \tau_1 = P(LR_n < k_a | H_1), \tau_1 \leq k_a \\
-  &\indent \tau_i = O_p(n^{-1/2}) \text{instead of remaining fixed like type I error}
-\end{aligned}$
-
-\newpage 
-
-\noindent \textbf{Translating likelihood properties into Simon-like design:} \\
+and has three evidential zones: evidence for the null hypothesis, weak evidence, and evidence for the alternative hypothesis. If the $\mbox{LR}_n \in [0, 1/k]$, there is evidence for the null hypothesis, if $\mbox{LR}_n \in [1/k,k]$, there is weak evidence for either hypothesis, and if $\mbox{LR}_n \in [k,\infty]$, there is evidence for the alternative hypothesis. The probability of observing weak evidence is $\mbox{PW}_i = P(k_a \leq LR_n \leq k_b | H_i), k_a \leq 1 \leq k_b$, the probability of observing strong evidence is 
+$$
+\mbox{PS}_i = \left\{
+        \begin{array}{ll}
+            P(LR_n > k_b|H_i) & \quad \text{if } i = 1 \\
+            P(LR_n < k_b|H_i) & \quad \text{if } i = 0
+        \end{array}
+    \right.
+$$
+and the probability of obseving misleading evidence is 
+$$
+\mbox{PM}_i = \left\{
+        \begin{array}{ll}
+            P(LR_n > k_b|H_i) & \quad \text{if } i = 0 \\
+            P(LR_n < k_b|H_i) & \quad \text{if } i = 1
+        \end{array}
+    \right.
+$$. 
+One advantage to a likelihood sequential design is that the universal bound of misleading evidence under the null hypothesis is $P(LR_n > k_b|H_0) \leq \frac{1}{k_b}$ for any $\mbox{n} \geq 1$.
+The likelihood two stage design will enroll $n_1$ observations into the first stage. If we observe a likelihood ratio that is $k_{a_1} < LR_{n_1} < k_{b_1}$, where $k_{a_1}$ and $k_{b_1}$ are benchmarks for description of evidence in the first stage, we continue to the second stage. If we observe $\mbox{LR}_{n_1} \leq k_{a_1}$, the study will stop for futility and if we observe $\mbox{LR}_{n_1} \geq k_{b_1}$, the study will stop for efficacy. Then, $n_2$ patients are enrolled. If the $\mbox{LR}_{n_t} = \mbox{LR}_{n_1}\mbox{LR}_{n_2}$ is $k_{a_t} < \mbox{LR}_{n_t} < k_{b_t}$, where $k_{a_t}$ and $k_{b_t}$ are benchmarks at the end of stage II, then the study will conclude with weak evidence. The study will conclude with evidence for the alternative hypothesis if $\mbox{LR}_{n_t} \geq k_{b_t}$ and evidence for the null hypothesis if $\mbox{LR}_{n_t} \leq k_{a_t}$. \\
+\indent One can adapt the likelihood two stage design to emulate conventional, Simon-like designs such as optimal, minimax, or admissible designs. In order to do this, one can set $k_{a_1} = \frac{p_1(1-p_0)}{p_0(1-p_1)}^{r_1} \frac{1-p_1}{1-p_0}^{n_1} = \frac{1-p_0}{1-p_1}^{r_1-n_1}\frac{p_1}{p_0}^{r_1}$, $k_{a_t}  = \frac{p_1(1-p_0)}{p_0(1-p_1)}^{r_t} \frac{1-p_1}{1-p_0}^{n_t} = \frac{1-p_0}{1-p_1}^{r_t-n_t}\frac{p_1}{p_0}^{r_t}$, $k_{b_1} = \infty$, and $k_{b_t} = \infty$, where $n_1, n_t, r_1, r_2$ are Simon-like two-stage design parameters. I feel like you need to know r1 to get ka and you need to know ka to get r1. \\ Blume and Ayers describe that likelihood designs preserve type I error rate and is bounded by $\frac{1}{k_{b_t}}$ and is equal to $O_{p_i}\left({n}^{-1/2}\right)$. Under the likelihood design, error rates tend to be less of an issue because the the average of the error rates, $\frac{\alpha + \beta}{2}$, is minimized with the likelihood approach \cite{Blume}. Because these designs are not restricted by error rates, and rather use the likelihood ratio, this method offers favorable flexibility for unplanned sample sizes in the first stage. 
+\newline
 Interim: Translating to successes. This is the region in which we move to stage 2\\
 
 $\begin{aligned}
-  & UB_{interim} = \frac{log(k_{bi}) - n_1 log(\frac{1-p_1}{1-p_0})}{log(\frac{p_1(1-p_0)}{p_0(1-p_1)})} \\
-  & LB_{interim} = \frac{log(k_{ai}) - n_1 log(\frac{1-p_1}{1-p_0})}{log(\frac{p_1(1-p_0)}{p_0(1-p_1)})} \\
-  &\text{(LB, UB) is the interval for weak evidence. If this was Simon's design, } LB_{interim} = r_1 \\
+& UB_{interim} = \frac{log(k_{bi}) - n_1 log(\frac{1-p_1}{1-p_0})}{log(\frac{p_1(1-p_0)}{p_0(1-p_1)})} \\
+& LB_{interim} = \frac{log(k_{ai}) - n_1 log(\frac{1-p_1}{1-p_0})}{log(\frac{p_1(1-p_0)}{p_0(1-p_1)})} \\
+&\text{(LB, UB) is the interval for weak evidence. If this was Simon's design, } LB_{interim} = r_1 \\
   &\text{Probability of strong, misleading, and weak evidence under the null} \\
   &\indent P(\mbox{Strong}_{0i}) = B(\floor*{LB_{interim}}, n_1, p_0) \\
   &\indent P(Misleading_{0i}) = 1-B(\floor*{UB_{interim}}, n_1, p_0) \\
@@ -585,19 +588,20 @@ $\begin{aligned}
   &\indent P(Weak_{0i}) = B(\floor*{UB_{interim}}, n_1, p_1) - B(\floor*{LB_{interim}}, n_1, p_1) \\
   &\text{note: under Simon's, PET = 1-P(Weak)}
 \end{aligned}$
-
-\newpage 
+  
+  \newpage 
 \vspace{5mm}
 \noindent \textbf{Translating likelihood properties into Simon-like design:} \\
 Final Stage: Translating to successes.\\
 $\begin{aligned}
-  & \text{The amount of successes that allow for continuation to the second stage are:  }  \\                   
-  & \qquad  (\floor*{LB_{interim}+1}, \floor*{min(n_1, UB_{interim})}) \\
-  &\text{Probability of strong, misleading, and weak evidence under } H_p \\
-  & P(Weak_p) = \sum_{x=\floor*{LB_{interim}+1}}^{\floor*{min(n_1, UB_{interim})}} \Big(b(x, n_1, p_p) \times B(UB_{interim} - x, n - n_1, p_p)\Big) - B(LB_{interim} - x, n - n_1, p_p)\\
-  & P(Strong_p) = P(Strong_{0i}) + \sum_{x=\floor*{LB_{interim}+1}}^{\floor*{min(n_1, UB_{interim})}} \Big( b(x,n_1,p_0) \times B(LB_{interim} - x, n-n_1, p_0) \Big) \\
-  & P(Misleading_p) = P(Misleading_{0i}) + \sum_{x=\floor*{LB_{interim}+1}}^{\floor*{min(n_1, UB_{interim})}} \Big(b(x, n_1, p_p) \times (1-B(UB_{interim} - x, n-n_1, p_p) \Big)
+& \text{The amount of successes that allow for continuation to the second stage are:  }  \\                   
+& \qquad  (\floor*{LB_{interim}+1}, \floor*{min(n_1, UB_{interim})}) \\
+&\text{Probability of strong, misleading, and weak evidence under } H_p \\
+& P(Weak_p) = \sum_{x=\floor*{LB_{interim}+1}}^{\floor*{min(n_1, UB_{interim})}} \Big(b(x, n_1, p_p) \times B(UB_{interim} - x, n - n_1, p_p)\Big) - B(LB_{interim} - x, n - n_1, p_p)\\
+& P(Strong_p) = P(Strong_{0i}) + \sum_{x=\floor*{LB_{interim}+1}}^{\floor*{min(n_1, UB_{interim})}} \Big( b(x,n_1,p_0) \times B(LB_{interim} - x, n-n_1, p_0) \Big) \\
+& P(Misleading_p) = P(Misleading_{0i}) + \sum_{x=\floor*{LB_{interim}+1}}^{\floor*{min(n_1, UB_{interim})}} \Big(b(x, n_1, p_p) \times (1-B(UB_{interim} - x, n-n_1, p_p) \Big)
 \end{aligned}$
+
 
 \vspace{10mm}
 \noindent If we want to translate likelihood design into a Simon's design, we overwrite the LR limits above as:
@@ -608,13 +612,48 @@ $\begin{aligned}
  &k_{bi} = k_b = \infty\\
 \end{aligned}$
 
-%Note: Better notation, especially for $h_i$ and interim
-%\end{equation*}
-%\end{flushleft}
+Because these methods for deviation from planned sample size in the first stage is not well studied in the literature, we only consider these cases for the remainder of this paper. 
 
 \chapter{Example}
 Here put the results of comparing the Chang et al paper and adaptation to the protocol of the study. 
 We used Monte Carlo simulation to examine the performance of the study design of Chang et al...
+\newline
+In order to compare these new Frequentist and Likelihood methods for deviation of sample size in the first stage, we first introduce a concrete example. An actual phase II cancer clinical trial was designed using the likelihood approach. In order to stick to convention, the trial would only stop early for futility. The planned design parameters are $n_1 = 17$, $n_t = 41$, $r_1 = 17$, $r_t = 21$, $p_0 = 0.4$, and $p_1 = 0.6$. This study design has an expected sample size of 25.6 and a probability of early termination under the null hypothesis of 64\%. This is considered an Admissible design and meets the nominal type I error rate, $\alpha = 0.05$, and type I error rate, $\beta = 0.2$. In concordance with the likelihood design, the authors provide alternative interim stopping rules for sample sizes that deviate from the planned design. These new designs have a probability of early termination under the null that exceed 50\% and preserve type I and type II error rates. Using the original likelihood design, but varying $n_1$, one can use Chang et al.'s and the adapted method to obtain similar results. We keep stage II sample size the same in this case. 
+
+
+
+
+\begin{table}[H]
+\centering
+\caption{Stopping rules for deviations from first stage planned sample size concrete example}
+\hspace*{-3.5cm}
+\begin{tabular}{|L|R|R|R|R|L|}
+\hline
+Design           & $r_1$ & $n_1$ & $\mbox{PET}_0$ & $\mbox{EN}_0$ & Likelihood ratio favoring $H_0$ that corresponds to Simon's futility stopping rule \\ \hline
+Likelihood       & 7     & 17    & 64\%           & 25.6          & 1/3.375                                                                            \\ \hline
+Chang            & 7     & 17    & 64\%           & 25.6          &                                                                                    \\ \hline
+Chang Adaptation & 7     & 17    & 64\%           & 25.6          &                                                                                    \\ \hline
+Likelihood       & 8     & 19    & 67\%           & 26.3          & 1/3.375                                                                            \\ \hline
+Chang            & 8     & 19    & 67\%           & 26.3          &                                                                                    \\ \hline
+Chang Adaptation & 8     & 19    & 67\%           & 26.3          &                                                                                    \\ \hline
+Likelihood       & 9     & 21    & 69\%           & 27.2          & 1/3.375                                                                            \\ \hline
+Chang            & 9     & 21    & 69\%           & 27.2          &                                                                                    \\ \hline
+Chang Adaptation & 9     & 21    & 69\%           & 27.2          &                                                                                    \\ \hline
+Likelihood       & 10    & 23    & 71\%           & 28.2          & 1/3.375                                                                            \\ \hline
+Chang            & 10    & 23    & 71\%           & 28.2          &                                                                                    \\ \hline
+Chang Adaptation & 10    & 23    & 71\%           & 28.2          &                                                                                    \\ \hline
+Likelihood       & 6     & 16    & 53\%           & 27.8          & 1/5.062                                                                            \\ \hline
+Chang            & 6     & 16    & 53\%           & 27.8          &                                                                                    \\ \hline
+Chang Adaptation & 7     & 16    & 72\%           & 23.1          &                                                                                    \\ \hline
+Likelihood       & 7     & 18    & 56\%           & 28            & 1/5.062                                                                            \\ \hline
+Chang            & 7     & 18    & 56\%           & 28            &                                                                                    \\ \hline
+Chang Adaptation & 7     & 18    & 56\%           & 28            &                                                                                    \\ \hline
+Likelihood       & 8     & 20    & 60\%           & 28.5          & 1/5.062                                                                            \\ \hline
+Chang            & 8     & 20    & 60\%           & 28.5          &                                                                                    \\ \hline
+Chang Adaptation & 8     & 20    & 60\%           & 28.5          &                                                                                    \\ \hline
+\end{tabular}
+\hspace*{-0.1cm}
+\end{table}
 
 \chapter{Results}
 The findings will be put here - primarily tables covering different combinations of Simon's designs and unplanned sample sizes. 
@@ -652,16 +691,11 @@ Maybe put the chang design here that goes beyond stage 2 sample size being origi
 \begin{itemize}
   \item Particularly when describing other peoples' methods, how do you cite?
   \item If likelihood design can translate into simon's design and have better properties - can that be used as a tool to come up with these designs instead of using Chang's method? Or are they different because you're operating under frequentist vs likelihood inference? 
-  \item Chang's method - would we use a conventional p-value?
-  \item Koyama's method: equation (5) does X2' have to be attained? is this calculated after stage 2 happened? If so, isn't that not what we are focusing on? aren't we trying to prespecify a design rather than deal with what happened?
   \item Why do we choose PET closest to the original? - consider choosing closest PET, being conservative. mention that there are two ways to think about it. one is conservative and one is closest and they're pretty close to each other. 
 \end{itemize}
 
 \section{Notes}
 \begin{itemize}
-  \item So I think a lot of what's going on is they are calculating p-values based on the attained sample size, but not actually a second stage critical value. 
-  \item Are papers like Tatsuki's finding critical values? Or just calculating p-values? Tatsuki calculates a new critical value. 
-  \item conclusions: read green and dahlberg, chen and ng, tatsukis, and zhao. I'm fairly certain tatsuki's is the only one with a new critical value when stage 2 is different. GD, CN may be "redesigns" The bayesian paper has a good explaination of faults in green and dahlberg, chen and ng. we can talk about these briefly in the first stage differing. 
   \item inference from likelihood is more straightforward. the authors in koyama have shown that the p-value depends on the design. p-value's in multistage designs depend on the p-value. first stage is more complex. 
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
